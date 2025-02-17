@@ -1,1 +1,37 @@
+@import "tailwindcss";
+* {
+  @apply dark:text-white text-black;
+
+  --white-bg-color: #FCFFFF;
+  --white-cards-color: white;
+  --white-icons-color: #CFCFCF;
+
+  --black-bg-color: #010D1E;
+  --black-cards-color: #262626;
+  --black-icons-color: #F8F8F8;
+}
+
+@theme {
+
+  --color-gray-50: var(--white-bg-color);
+  --color-gray-100: var(--white-cards-color);
+  --color-gray-500: var(--white-icons-color);
+
+  --color-gray-800: var(--black-bg-color);
+  --color-gray-200: var(--black-icons-color);
+  --color-gray-700: var(--black-cards-color);
+
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: Inter, sans-serif;
+
+  width: 99.3vw;
+  margin: 0;
+  padding: 0;
+}
 /* You can add global styles to this file, and also import other style files */
