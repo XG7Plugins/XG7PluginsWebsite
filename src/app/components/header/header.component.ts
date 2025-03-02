@@ -14,11 +14,11 @@ export class HeaderComponent {
   protected readonly document = document;
 
   public toggleDark() {
-    let isDark = document.body.classList.contains("dark")
+    let isDark = document.documentElement.classList.contains("dark")
     if (isDark) {
-      document.body.classList.remove("dark")
+      document.documentElement.classList.remove("dark")
     } else {
-      document.body.classList.add("dark")
+      document.documentElement.classList.add("dark")
     }
   }
 }

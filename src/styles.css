@@ -34,4 +34,22 @@ body {
   margin: 0;
   padding: 0;
 }
+
+svg {
+  @apply fill-gray-800 dark:fill-gray-50
+}
+
+.btn {
+  background-color: blue;
+
+  border-radius: 18px;
+
+  @apply dark:text-black text-white
+}
+.btn:hover {
+  transition: 0.5s;
+  transform: scale(1.05);
+  background-color: #3b3bdc;
+}
+
 /* You can add global styles to this file, and also import other style files */
