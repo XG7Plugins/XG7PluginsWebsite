@@ -11,4 +11,9 @@ import {NgOptimizedImage} from '@angular/common';
 })
 export class MainpageComponent {
 
+  scrollToPlugins(event: MouseEvent) {
+    event.preventDefault()
+    document.querySelector('#plugins')?.scrollIntoView({behavior: 'smooth'});
+  }
+
 }

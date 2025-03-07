@@ -23,14 +23,19 @@
 
 }
 
-body {
+html {
+  scroll-behavior: smooth;
+}
+
+html, body {
   display: flex;
   align-items: center;
   justify-content: center;
 
   font-family: Inter, sans-serif;
 
-  width: 99.3vw;
+  width: 100vw;
+  overflow-x: hidden;
   margin: 0;
   padding: 0;
 }
@@ -40,7 +45,7 @@ svg {
 }
 
 .btn {
-  background-color: blue;
+  background-color: #1796ff;
 
   border-radius: 18px;
 
@@ -49,7 +54,23 @@ svg {
 .btn:hover {
   transition: 0.5s;
   transform: scale(1.05);
-  background-color: #3b3bdc;
+  background-color: #4343ff;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    top: -100px
+  }
+  to {
+    opacity: 1;
+    top: 0;
+  }
+}
+
+.anm {
+  animation: aparecer;
+  animation-duration: 1.5s;
 }
 
 /* You can add global styles to this file, and also import other style files */
