@@ -1,3 +1,6 @@
+@import "tailwindcss";
+
+
 main {
   width: 75vw;
   display: flex;
@@ -56,6 +59,9 @@ main {
 }
 
 .card {
+
+  @apply bg-gray-100 dark:bg-gray-700;
+
   margin: 15px;
   width: 220px;
   height: 350px;

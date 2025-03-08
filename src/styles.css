@@ -49,12 +49,17 @@ svg {
 
   border-radius: 18px;
 
-  @apply dark:text-black text-white
+  @apply text-white
 }
 .btn:hover {
   transition: 0.5s;
   transform: scale(1.05);
   background-color: #4343ff;
+}
+
+a:hover {
+  transition: 0.5s;
+  transform: scale(1.05);
 }
 
 @keyframes aparecer {
