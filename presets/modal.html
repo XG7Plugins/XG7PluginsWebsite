@@ -1,0 +1,7 @@
+<button (click)="isModalOpen = true">Abrir Modal</button>
+
+<app-modal *ngIf="isModalOpen" (close)="isModalOpen = false">
+  <h2>Meu Modal</h2>
+  <p>Esse é um modal reutilizável.</p>
+  <button (click)="isModalOpen = false">Fechar</button>
+</app-modal>

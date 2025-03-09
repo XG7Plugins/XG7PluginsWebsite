@@ -45,6 +45,7 @@ svg {
 }
 
 .btn {
+  transition: 0.5s;
   background-color: #1796ff;
 
   border-radius: 18px;
@@ -60,6 +61,9 @@ svg {
 a:hover {
   transition: 0.5s;
   transform: scale(1.05);
+}
+a {
+  transition: 0.5s;
 }
 
 @keyframes aparecer {
@@ -78,4 +82,10 @@ a:hover {
   animation-duration: 1.5s;
 }
 
-/* You can add global styles to this file, and also import other style files */
+app-img {
+  display: flex; /* Evita que o Angular trate como inline */
+  justify-content: center;
+  align-items: center;
+  height: auto; /* Mantém a proporção */
+}
+

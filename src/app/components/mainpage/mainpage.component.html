@@ -1,20 +1,21 @@
 <main>
-  <img class="not-sm:w-[83%] w-[65%] m-[35px] anm" alt="title" ngSrc="images/banner_title.png" width="1" height="1"/>
-  <h2 class="text-center text-2xl font-extralight">Melhores plugins para seu servidor de <br />Minecraft!</h2>
+  <app-img class="not-sm:w-[83%] w-[65%] m-[35px] anm banner_title" alt="title" src="images/banner_title.png" width="230"/>
+  <h2 class="text-center text-2xl font-extralight" [innerHTML]="langService.getTranslation('landingpage', 'subtitle')"></h2>
   <div class="banner">
-    <img class="banner_img anm" alt="banner" ngSrc="images/banner_boy.png" width="100" height="100"/>
+    <app-img class="banner_img anm" alt="banner" src="images/banner_boy.png" width="230px"/>
     <div class="banner_text">
-      <h3 class="font-bold text-xl">Por que escolher XG7Plugins?</h3>
-      <p class="text-justify">Nossos plugins tem como objetivo lhe proporcionar sempre a melhor experiência e funcionalidade para os criadores de servidores, tendo sempre mais eficiência e melhor otimização para seu projeto.</p>
+      <h3 class="font-bold text-xl">{{ langService.getTranslation('landingpage', 'why_chose') }}</h3>
+      <p class="text-justify">
+        {{langService.getTranslation('landingpage', 'why_chose_desc')}}</p>
       <button class="btn w-35 h-13 m-5 font-light text-center" (click)="scrollToPlugins($event)">
-        Veja nossos plugins
+        {{langService.getTranslation('landingpage', 'see_plugins')}}
       </button>
     </div>
   </div>
   <div class="plugins">
     <header>
       <p class="rounded" style="background: #1796ff">Plugins: </p>
-      <a class="btn rounded" href="">Baixar core (obrigatório)</a>
+      <a class="btn rounded" href="">{{langService.getTranslation('landingpage', 'download_core')}}</a>
     </header>
     <div class="plugins-container" id="plugins">
 
@@ -24,72 +25,16 @@
         <p>Esse plugin é o melhor plugin de alguma coisa</p>
         <div class="flex w-full">
           <button class="btn w-32 h-10 m-2">
-            Baixar
+            {{langService.getTranslation('landingpage', 'download')}}
           </button>
           <button class="btn w-32 h-10 m-2">
-            Ver mais
-          </button>
-        </div>
-
-      </div>
-      <div class="card">
-        <img ngSrc="images/forma-de-meia-lua.png" alt="foto" width="1" height="1">
-        <h3 class="font-normal">Github plugin</h3>
-        <p>Esse plugin é o melhor plugin de alguma coisa</p>
-        <div class="flex w-full">
-          <button class="btn w-32 h-10 m-2">
-            Baixar
-          </button>
-          <button class="btn w-32 h-10 m-2">
-            Ver mais
-          </button>
-        </div>
-
-      </div>
-      <div class="card">
-        <img ngSrc="images/forma-de-meia-lua.png" alt="foto" width="1" height="1">
-        <h3 class="font-normal">Github plugin</h3>
-        <p>Esse plugin é o melhor plugin de alguma coisa</p>
-        <div class="flex w-full">
-          <button class="btn w-32 h-10 m-2">
-            Baixar
-          </button>
-          <button class="btn w-32 h-10 m-2">
-            Ver mais
-          </button>
-        </div>
-
-      </div>
-      <div class="card">
-        <img ngSrc="images/forma-de-meia-lua.png" alt="foto" width="1" height="1">
-        <h3 class="font-normal">Github plugin</h3>
-        <p>Esse plugin é o melhor plugin de alguma coisa</p>
-        <div class="flex w-full">
-          <button class="btn w-32 h-10 m-2">
-            Baixar
-          </button>
-          <button class="btn w-32 h-10 m-2">
-            Ver mais
-          </button>
-        </div>
-
-      </div>
-      <div class="card">
-        <img ngSrc="images/forma-de-meia-lua.png" alt="foto" width="1" height="1">
-        <h3 class="font-normal">Github plugin</h3>
-        <p>Esse plugin é o melhor plugin de alguma coisa</p>
-        <div class="flex w-full">
-          <button class="btn w-32 h-10 m-2">
-            Baixar
-          </button>
-          <button class="btn w-32 h-10 m-2">
-            Ver mais
+            {{langService.getTranslation('landingpage', 'see_more')}}
           </button>
         </div>
 
       </div>
 
     </div>
-    <button class="btn w-32 h-12 self-end m-3 not-sm:self-center">Veja mais</button>
+    <button class="btn w-32 h-12 self-start m-3 not-sm:self-center">{{langService.getTranslation('landingpage', 'see_more')}}</button>
   </div>
 </main>

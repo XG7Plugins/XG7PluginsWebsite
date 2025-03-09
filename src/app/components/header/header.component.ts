@@ -1,24 +1,29 @@
-import { Component } from '@angular/core';
-import {NgOptimizedImage} from '@angular/common';
+import {Component, OnInit} from '@angular/core';
+import {NgIf, NgOptimizedImage} from '@angular/common';
+import {LangService} from '../../services/lang/lang.service';
+import {ModalComponent} from '../utils/modal/modal.component';
 
 @Component({
   selector: 'app-header',
   imports: [
-    NgOptimizedImage
+    NgOptimizedImage,
+    ModalComponent,
+    NgIf
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
 
-  protected readonly document = document;
+  isMenuOpen = false;
 
-  public toggleDark() {
-    let isDark = document.documentElement.classList.contains("dark")
-    if (isDark) {
-      document.documentElement.classList.remove("dark")
-    } else {
-      document.documentElement.classList.add("dark")
-    }
+  constructor(
+    protected langService: LangService,
+  ) {}
+
+  ngOnInit(): void {
+    this.langService.lang$.subscribe(lang => {
+      this.langService.loadTranslations('header', lang);
+    });
   }
 }

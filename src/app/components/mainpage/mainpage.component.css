@@ -12,7 +12,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 63%;
+  width: 60%;
 }
 .banner_text {
   display: flex;
@@ -75,10 +75,15 @@ main {
   box-shadow: 0 0 10px 3px gray;
   font-weight: 200;
   text-align: center;
+  transition: 0.5s;
 }
 .card img {
   width: 100px;
   height: 100px;
+}
+.card:hover {
+  transition: 0.5s;
+  transform: scale(1.05);
 }
 
 @media screen and (max-width: 40rem) {
@@ -87,10 +92,13 @@ main {
   }
   .banner {
     flex-direction: column;
+    height: 600px;
+    justify-content: space-around;
   }
   .banner_img {
     width: 80%;
     height: auto;
+    margin: 0;
   }
   .plugins header {
     flex-direction: column;

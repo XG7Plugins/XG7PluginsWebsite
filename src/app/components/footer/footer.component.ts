@@ -1,11 +1,22 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {NgOptimizedImage} from '@angular/common';
+import {LangService} from '../../services/lang/lang.service';
 
 @Component({
   selector: 'app-footer',
-  imports: [],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.css'
 })
-export class FooterComponent {
+export class FooterComponent implements OnInit {
+
+  constructor(
+    protected langService: LangService,
+  ) {}
+
+  ngOnInit(): void {
+    this.langService.lang$.subscribe(lang => {
+      this.langService.loadTranslations('footer', lang);
+    });
+  }
 
 }
