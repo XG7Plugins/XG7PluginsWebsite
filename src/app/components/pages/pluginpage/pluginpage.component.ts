@@ -18,12 +18,15 @@ export class PluginpageComponent implements OnInit {
 
   loadedPlugins: PrePlugin[] = [];
 
+  currentPage = 1;
+  maxPages = 10;
+
   constructor(
     private pluginsService: PluginService
   ) {}
 
   ngOnInit(): void {
-    this.pluginsService.getSomePrePlugins(9).subscribe(plugins => {
+    this.pluginsService.getSomePrePlugins(10).subscribe(plugins => {
       this.loadedPlugins = plugins;
     });
   }

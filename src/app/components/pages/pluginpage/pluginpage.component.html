@@ -1,11 +1,19 @@
 <div class="plugins">
 
   <header class="plugins-header">
-    <p class="plugins-btn" style="background: #1796ff">Plugins: </p>
-    <a class="plugins-btn" style="background: #1796ff" href="">Download Core</a>
-    <a class="plugins-btn " style="background: #1796ff" href="">Filtrar por</a>
+    <div class="flex">
+      <p class="plugins-btn" style="background: #1796ff">Plugins: </p>
+      <a class="plugins-btn btn" href="">Download Core</a>
+    </div>
+    <select class="plugins-btn btn text-center">
+
+      <option value="0" >Filtrar por</option>
+      <option value="1" >Mais recentes</option>
+      <option value="2" >Mais baixados</option>
+
+    </select>
   </header>
-  <div class="plugins-container" id="plugins" [ngClass]="{ 'no-plugins': loadedPlugins.length === 0 }">
+  <div class="plugins-container" [ngClass]="{ 'no-plugins': loadedPlugins.length === 0 }">
 
     <div *ngFor="let plugin of loadedPlugins" class="card">
       <img ngSrc="{{ plugin.iconUrl }}" alt="foto" width="1" height="1">
@@ -19,6 +27,17 @@
     </div>
 
     <div *ngIf="loadedPlugins.length === 0"  class="spinner"></div>
+
   </div>
+  <footer class="flex self-end">
+    <a href="" *ngIf="currentPage -1 > 0">{{ currentPage - 1 }}</a>
+    <a href="">{{ currentPage }}</a>
+    <a href="" *ngIf="currentPage + 1 < maxPages">{{ currentPage + 1 }}</a>
+    <p>..</p>
+    <a href="">{{ maxPages }}</a>
+    <a href=""><</a>
+    <a href="">></a>
+  </footer>
+
 
 </div>

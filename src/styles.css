@@ -29,12 +29,12 @@ html {
 
 html, body {
   display: flex;
-  align-items: center;
   justify-content: center;
 
   font-family: Inter, sans-serif;
 
   width: 100vw;
+  min-height: 100vh;
   overflow-x: hidden;
   margin: 0;
   padding: 0;
