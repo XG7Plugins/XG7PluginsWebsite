@@ -50,5 +50,36 @@ hr {
   width: 2px;
 
 }
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 60vh;
+  width: 75vw;
+  border-radius: 20px;
+
+  @apply bg-white dark:bg-gray-700
+}
+
+.menu-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  text-decoration: none;
+
+  border: 1px solid black;
+  border-right: none;
+  border-left: none;
+}
+
+.menu-link:hover {
+  transition: 0.5s;
+  transform: scale(1.0);
+  background-color: #a6a6a6;
+  @apply bg-gray-600;
+}
 
 

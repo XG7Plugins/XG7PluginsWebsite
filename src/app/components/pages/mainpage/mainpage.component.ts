@@ -1,14 +1,15 @@
 import {Component, OnInit} from '@angular/core';
 import {NgOptimizedImage} from '@angular/common';
-import {LangService} from '../../services/lang/lang.service';
-import {ActivatedRoute} from '@angular/router';
-import {ImgComponent} from '../utils/img/img.component';
+import {LangService} from '../../../services/lang/lang.service';
+import {ActivatedRoute, RouterLink} from '@angular/router';
+import {ImgComponent} from '../../utils/img/img.component';
 
 @Component({
   selector: 'app-mainpage',
   imports: [
     NgOptimizedImage,
-    ImgComponent
+    ImgComponent,
+    RouterLink
   ],
   templateUrl: './mainpage.component.html',
   styleUrl: './mainpage.component.css'

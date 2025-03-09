@@ -10,12 +10,5 @@
   justify-content: center;
   z-index: 1000;
   backdrop-filter: blur(10px);
-}
-
-.modal {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  min-width: 300px;
+  transition: 0.5s;
 }

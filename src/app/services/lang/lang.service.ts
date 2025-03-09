@@ -51,4 +51,8 @@ export class LangService {
 
     return translations[key];
   }
+
+  getLang() {
+    return this.langSubject.value;
+  }
 }
