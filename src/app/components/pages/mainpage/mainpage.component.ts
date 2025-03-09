@@ -1,24 +1,32 @@
 import {Component, OnInit} from '@angular/core';
-import {NgOptimizedImage} from '@angular/common';
+import {NgClass, NgForOf, NgIf, NgOptimizedImage} from '@angular/common';
 import {LangService} from '../../../services/lang/lang.service';
 import {ActivatedRoute, RouterLink} from '@angular/router';
 import {ImgComponent} from '../../utils/img/img.component';
+import {PluginService} from '../../../services/plugin/plugin.service';
+import {PrePlugin} from '../../../services/plugin/plugin';
 
 @Component({
   selector: 'app-mainpage',
   imports: [
     NgOptimizedImage,
     ImgComponent,
-    RouterLink
+    RouterLink,
+    NgForOf,
+    NgIf,
+    NgClass
   ],
   templateUrl: './mainpage.component.html',
   styleUrl: './mainpage.component.css'
 })
 export class MainpageComponent implements OnInit {
 
+  loadedPlugins: PrePlugin[] = [];
+
   constructor(
     protected langService: LangService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private pluginsService: PluginService
   ) {}
 
   scrollToPlugins(event: MouseEvent) {
@@ -31,6 +39,11 @@ export class MainpageComponent implements OnInit {
       const lang = params['lang'];
       this.langService.setLang(lang);
       this.langService.loadTranslations("landingpage", lang)
+    });
+
+    this.pluginsService.getSomePrePlugins(5).subscribe(plugins => {
+      this.loadedPlugins = plugins;
+      console.log("Loaded pl " + this.loadedPlugins);
     });
   }
 

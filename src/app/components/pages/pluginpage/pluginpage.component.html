@@ -1,1 +1,24 @@
-<p>pluginpage works!</p>
+<div class="plugins">
+
+  <header class="plugins-header">
+    <p class="plugins-btn" style="background: #1796ff">Plugins: </p>
+    <a class="plugins-btn" style="background: #1796ff" href="">Download Core</a>
+    <a class="plugins-btn " style="background: #1796ff" href="">Filtrar por</a>
+  </header>
+  <div class="plugins-container" id="plugins" [ngClass]="{ 'no-plugins': loadedPlugins.length === 0 }">
+
+    <div *ngFor="let plugin of loadedPlugins" class="card">
+      <img ngSrc="{{ plugin.iconUrl }}" alt="foto" width="1" height="1">
+      <h3 class="font-normal">{{ plugin.name }}</h3>
+      <p>{{ plugin.description }}</p>
+      <div class="flex w-full">
+        <button class="btn w-32 h-10 m-2">Download</button>
+        <button class="btn w-32 h-10 m-2">See More</button>
+      </div>
+
+    </div>
+
+    <div *ngIf="loadedPlugins.length === 0"  class="spinner"></div>
+  </div>
+
+</div>

@@ -17,12 +17,12 @@
       <p class="rounded" style="background: #1796ff">Plugins: </p>
       <a class="btn rounded" href="">{{langService.getTranslation('landingpage', 'download_core')}}</a>
     </header>
-    <div class="plugins-container" id="plugins">
+    <div class="plugins-container" id="plugins" [ngClass]="{ 'no-plugins': loadedPlugins.length === 0 }">
 
-      <div class="card">
-        <img ngSrc="images/forma-de-meia-lua.png" alt="foto" width="1" height="1">
-        <h3 class="font-normal">Github plugin</h3>
-        <p>Esse plugin é o melhor plugin de alguma coisa</p>
+      <div *ngFor="let plugin of loadedPlugins" class="card">
+        <img ngSrc="{{ plugin.iconUrl }}" alt="foto" width="1" height="1">
+        <h3 class="font-normal">{{ plugin.name }}</h3>
+        <p>{{ plugin.description }}</p>
         <div class="flex w-full">
           <button class="btn w-32 h-10 m-2">
             {{langService.getTranslation('landingpage', 'download')}}
@@ -34,6 +34,7 @@
 
       </div>
 
+      <div *ngIf="loadedPlugins.length === 0"  class="spinner"></div>
     </div>
     <button routerLink="plugins" class="btn w-32 h-12 self-start m-3 not-sm:self-center">{{langService.getTranslation('landingpage', 'see_more')}}</button>
   </div>

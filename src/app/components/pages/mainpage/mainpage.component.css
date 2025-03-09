@@ -58,34 +58,6 @@ main {
   display: flex;
 }
 
-.card {
-
-  @apply bg-gray-100 dark:bg-gray-700;
-
-  margin: 15px;
-  width: 220px;
-  height: 350px;
-  border: #00D4FF solid 3px;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 20px;
-  box-shadow: 0 0 10px 3px gray;
-  font-weight: 200;
-  text-align: center;
-  transition: 0.5s;
-}
-.card img {
-  width: 100px;
-  height: 100px;
-}
-.card:hover {
-  transition: 0.5s;
-  transform: scale(1.05);
-}
-
 @media screen and (max-width: 40rem) {
   main {
     width: 100%;
@@ -113,9 +85,6 @@ main {
     max-height: 500px;
 
     overflow: auto;
-  }
-  .card {
-    min-height: 350px;
   }
   .plugins {
     align-items: center;
