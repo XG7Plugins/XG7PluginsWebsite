@@ -8,6 +8,7 @@ main {
 .plugins-container {
   width: 75vw;
   display: flex;
+  height: 100%;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -31,8 +32,8 @@ main {
 }
 footer {
   display: flex;
-  align-self: flex-end;
   align-items: center;
+  justify-content: center;
 }
 footer a {
   width: 40px;
@@ -44,4 +45,12 @@ footer a {
   margin: 5px;
   border-radius: 50%;
   background-color: #94ceff;
+}
+
+@media screen and (max-width: 40rem) {
+
+  .plugins-header {
+    flex-direction: column;
+  }
+
 }

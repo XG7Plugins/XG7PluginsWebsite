@@ -3,6 +3,7 @@ import {NgIf, NgOptimizedImage} from '@angular/common';
 import {LangService} from '../../services/lang/lang.service';
 import {ModalComponent} from '../utils/modal/modal.component';
 import {RouterLink} from '@angular/router';
+import {UserService} from '../../services/user/user.service';
 
 @Component({
   selector: 'app-header',
@@ -21,6 +22,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     protected langService: LangService,
+    protected userService: UserService
   ) {}
 
   ngOnInit(): void {

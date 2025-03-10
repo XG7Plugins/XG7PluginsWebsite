@@ -1,14 +1,14 @@
 <main class="plugins">
   <header class="plugins-header">
-    <div class="flex">
+    <div class="flex not-sm:flex-col">
       <p class="plugins-btn" style="background: #1796ff">Plugins: </p>
-      <a class="plugins-btn btn" href="">Download Core</a>
+      <a class="plugins-btn btn" href="">{{ langs.getTranslation("plugins", "download_core") }}</a>
     </div>
     <select class="plugins-btn btn text-center">
 
-      <option value="0" >Filtrar por</option>
-      <option value="1" >Mais recentes</option>
-      <option value="2" >Mais baixados</option>
+      <option value="0" >{{ langs.getTranslation("plugins", "filter") }}</option>
+      <option value="1" >{{ langs.getTranslation("plugins", "most_recent") }}</option>
+      <option value="2" >{{ langs.getTranslation("plugins", "most_downloaded") }}</option>
 
     </select>
   </header>
@@ -19,18 +19,18 @@
       <h3 class="font-normal">{{ plugin.name }}</h3>
       <p>{{ plugin.description }}</p>
       <div class="flex w-full">
-        <button class="btn w-32 h-10 m-2">Download</button>
-        <button class="btn w-32 h-10 m-2">See More</button>
+        <button class="btn w-32 h-10 m-2">{{ langs.getTranslation("plugins", "download") }}</button>
+        <button class="btn w-32 h-10 m-2">{{ langs.getTranslation("plugins", "see_more") }}</button>
       </div>
 
     </div>
 
-    <div *ngIf="loadedPlugins.length === 0"  class="spinner"></div>
-
+    <div *ngIf="loading"  class="spinner"></div>
+    <div *ngIf="!loading && loadedPlugins.length === 0">No plugins found</div>
   </div>
-  <footer class="flex self-end">
+  <footer class="not-sm:self-center self-end">
     <a href="" *ngIf="currentPage -1 > 0">{{ currentPage - 1 }}</a>
-    <a href="">{{ currentPage }}</a>
+    <a style="background: blue" href="">{{ currentPage }}</a>
     <a href="" *ngIf="currentPage + 1 < maxPages">{{ currentPage + 1 }}</a>
     <p>..</p>
     <a href="">{{ maxPages }}</a>

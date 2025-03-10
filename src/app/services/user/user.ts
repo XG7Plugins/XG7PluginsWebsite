@@ -1,5 +1,6 @@
 export interface User {
-  id: number;
+  token: string;
   username: string;
   isAdmin: boolean;
+  icon_url: string
 }

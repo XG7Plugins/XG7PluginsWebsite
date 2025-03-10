@@ -23,6 +23,8 @@ export class MainpageComponent implements OnInit {
 
   loadedPlugins: PrePlugin[] = [];
 
+  loadingPlugins = true
+
   constructor(
     protected langService: LangService,
     private route: ActivatedRoute,
@@ -43,7 +45,7 @@ export class MainpageComponent implements OnInit {
 
     this.pluginsService.getSomePrePlugins(5).subscribe(plugins => {
       this.loadedPlugins = plugins;
-      console.log("Loaded pl " + this.loadedPlugins);
+      this.loadingPlugins = false;
     });
   }
 

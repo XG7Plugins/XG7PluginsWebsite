@@ -34,7 +34,8 @@
 
       </div>
 
-      <div *ngIf="loadedPlugins.length === 0"  class="spinner"></div>
+      <div *ngIf="loadingPlugins"  class="spinner"></div>
+      <div *ngIf="!loadingPlugins && loadedPlugins.length === 0">No plugins found</div>
     </div>
     <button routerLink="plugins" class="btn w-32 h-12 self-start m-3 not-sm:self-center">{{langService.getTranslation('landingpage', 'see_more')}}</button>
   </div>
