@@ -1,0 +1,18 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-image: linear-gradient(45deg, blue, aqua);
+}
+
+form {
+  width: 350px;
+  height: 550px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #F8F8F8;
+}
