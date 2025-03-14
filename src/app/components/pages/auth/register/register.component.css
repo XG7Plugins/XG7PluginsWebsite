@@ -89,18 +89,36 @@ input:focus {
 }
 
 .login {
-  background-color: white;
-  border-radius: 10px 0 0 10px;
-  z-index: 2;
+  background-color: #A6C6D3;
+  z-index: 1;
 }
 
 .cadastro {
-  background-color: #A6C6D3;
-  border-radius: 0 10px 10px 0;
-  z-index: 1;
+
+  background-color: white;
+  border-radius: 0 0 0 0;
+  z-index: 2;
 }
-.cadastro:hover {
+.login:hover {
   z-index: 0;
+}
+
+.terms {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  height: 27px;
+  font-size: 12px;
+  color: black;
+}
+.terms input {
+  margin-right: 5px;
+  width: 30px;
+}
+.terms a {
+  color: #5053FF;
+  text-decoration: underline;
 }
 
 
@@ -126,10 +144,10 @@ input:focus {
   }
 
   .login {
-    background: #327498;
+    background-color: #010D1E;
   }
   .cadastro {
-    background-color: #010D1E;
+    background: #327498;
   }
 }
 

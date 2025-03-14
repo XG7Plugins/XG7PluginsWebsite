@@ -1,6 +1,6 @@
 <header class="dark:bg-gray-800 bg-gray-50">
   <div class="logo not-sm:w-1/2 w-[20%]">
-    <img class="logo not-sm:w-1/2 w-[20%] header-img" ngSrc="/images/logo.png" width="1" height="1" alt="logo">
+    <img class="logo not-sm:w-1/2 w-[20%] header-img" ngSrc="/images/logo.gif" width="1" height="1" alt="logo">
   </div>
   <nav class="flex not-sm:hidden not-sm:w-[40%]">
     <a class="font-light flex items-center" href="">
@@ -32,7 +32,7 @@
 
     <a class="btn flex w-full p-2 not-sm:hidden" routerLink="{{langService.getLang()}}/auth/login">
       <img class="rounded-full" ngSrc="/images/profile.jpg" width="35" height="35" alt="profile">
-      <p class="text-center">Área do cliente</p>
+      <p class="text-center w-full">Área do cliente</p>
     </a>
     <button (click)="isMenuOpen = true">
       <svg class="sm:hidden" xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#e8eaed"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
@@ -63,7 +63,7 @@
             Docs
           </a>
         </div>
-        <a class="btn flex w-1/2 p-2 items-center justify-around" routerLink="{{langService.getLang()}}/auth/login">
+        <a class="btn flex w-1/2 p-2 items-center justify-around text-center" routerLink="{{langService.getLang()}}/auth/login">
           <img class="rounded-full" ngSrc="/images/profile.jpg" width="35" height="35" alt="profile">
           <p class="text-center">Área do cliente</p>
         </a>

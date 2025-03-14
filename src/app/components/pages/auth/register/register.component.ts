@@ -1,18 +1,18 @@
 import {Component, OnInit} from '@angular/core';
-import {ImgComponent} from '../../../utils/img/img.component';
-import {RouterLink} from '@angular/router';
+import {ImgComponent} from "../../../utils/img/img.component";
+import {RouterLink} from "@angular/router";
 import {LangService} from '../../../../services/lang/lang.service';
 
 @Component({
-  selector: 'app-login',
-  imports: [
-    ImgComponent,
-    RouterLink
-  ],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  selector: 'app-register',
+    imports: [
+        ImgComponent,
+        RouterLink
+    ],
+  templateUrl: './register.component.html',
+  styleUrl: './register.component.css'
 })
-export class LoginComponent implements OnInit {
+export class RegisterComponent implements OnInit {
 
   constructor(
     protected langService: LangService,
@@ -26,6 +26,5 @@ export class LoginComponent implements OnInit {
     })
 
   }
-
 
 }
