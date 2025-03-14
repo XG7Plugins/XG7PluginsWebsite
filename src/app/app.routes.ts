@@ -3,6 +3,7 @@ import {MainpageComponent} from './components/pages/mainpage/mainpage.component'
 import {PluginpageComponent} from './components/pages/pluginpage/pluginpage.component';
 import {LoginComponent} from './components/pages/auth/login/login.component';
 import {RegisterComponent} from './components/pages/auth/register/register.component';
+import {TermsComponent} from './components/pages/terms/terms.component';
 
 export const routes: Routes = [
   {
@@ -10,6 +11,7 @@ export const routes: Routes = [
     children: [
       { path: '', component: MainpageComponent },
       { path: 'plugins', component: PluginpageComponent },
+      { path: 'terms', component: TermsComponent },
       {
         path: 'auth',
         children: [

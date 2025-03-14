@@ -14,7 +14,7 @@
       </svg>
       <p class="font-bold">Github</p>
     </a>
-    <a class="flex flex-col items-center me-2">
+    <a routerLink="/{{langService.getLang()}}/terms" class="flex flex-col items-center me-2">
       <svg class="m-1 bg-gray-500 dark:bg-black p-2 rounded-full" xmlns="http://www.w3.org/2000/svg" height="65px" viewBox="0 -960 960 960" width="65px" fill="#e3e3e3"><path d="M192-144v-72h432v72H192Zm204-195L192-542l85-85 203 204-84 84Zm237-237L430-779l84-85 204 204-85 84Zm180 384L327-678l51-51 486 486-51 51Z"/></svg>      <p class="font-bold">
       {{langService.getTranslation("footer", "terms")}}
     </p>
