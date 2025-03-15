@@ -1,3 +1,8 @@
 {
-  "subtitle": "Best plugins for your <br />Minecraft server"
+  "download_core": "Download core (required)",
+  "download": "Download",
+  "see_more": "See more",
+  "filter": "Filter",
+  "most_recent": "Most recent",
+  "most_downloaded": "Most downloaded"
 }

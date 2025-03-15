@@ -1,35 +1,37 @@
 <div class="background">
 
   <form action="">
-    <app-img src="images/logo.png" width="152px"></app-img>
-    <h1 style="font-weight: 600; font-size: 36px" class="text-center">Entrar no XG7Plugins</h1>
+    <app-img src="images/logo.png" width="130px"></app-img>
+    <h1 style="font-weight: 600; font-size: 30px" class="text-center">
+      {{langService.getTranslation("login", "login-to")}}
+    </h1>
 
     <div class="input">
       <label for="email">
         Email:
       </label>
-      <input type="email" id="email" name="email" placeholder="Digite seu email" />
+      <input type="email" id="email" name="email" placeholder='{{langService.getTranslation("login", "email-placeholder")}}' />
 
     </div>
     <div class="input">
       <label for="senha">
-        Senha:
+        {{langService.getTranslation("login", "password")}}
       </label>
-      <input type="password" id="senha" name="senha" placeholder="Digite sua senha" />
+      <input type="password" id="senha" name="senha" placeholder='{{langService.getTranslation("login", "password-placeholder")}}' />
 
     </div>
 
     <a class="login-btn" href="">
-      Entrar
+      {{langService.getTranslation("login", "login")}}
     </a>
 
     <div class="pages">
-      <a routerLink="/{{this.langService.getLang()}}/auth/login" class="login">Login</a>
-      <a routerLink="/{{this.langService.getLang()}}/auth/register" class="cadastro">Cadastro</a>
+      <a routerLink="/{{this.langService.getLang()}}/auth/login" class="login">{{langService.getTranslation("login", "login-btn")}}</a>
+      <a routerLink="/{{this.langService.getLang()}}/auth/register" class="cadastro">{{langService.getTranslation("login", "register-btn")}}</a>
     </div>
 
     <a class="font-light" routerLink="/{{this.langService.getLang()}}">
-      <- Voltar para o site
+      {{langService.getTranslation("login", "back-to-website")}}
     </a>
 
   </form>

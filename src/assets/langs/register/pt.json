@@ -1,0 +1,14 @@
+{
+  "register-to": "Cadastre-se no XG7Plugins",
+  "username": "Nome de usuário:",
+  "username-placeholder": "Digite seu nome do Minecraft",
+  "email-placeholder": "Digite seu email",
+  "password": "Senha:",
+  "password-placeholder": "Digite sua senha",
+  "register": "Cadastrar",
+  "login-btn": "Login",
+  "register-btn": "Cadastro",
+  "back-to-website": "<- Voltar para o site",
+  "before-terms": "Ao se cadastrar você concorda com os nossos",
+  "terms": "Termos de uso e a Política de privacidade"
+}

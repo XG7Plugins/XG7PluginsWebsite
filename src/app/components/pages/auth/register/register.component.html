@@ -1,49 +1,52 @@
 <div class="background">
 
   <form action="">
-    <app-img src="images/logo.png" width="152px"></app-img>
-    <h1 style="font-weight: 600; font-size: 36px" class="text-center">Cadastre-se no XG7Plugins</h1>
+    <app-img src="images/logo.png" width="130px"></app-img>
+    <h1 style="font-weight: 600; font-size: 30px" class="text-center">
+      {{langService.getTranslation("register", "register-to")}}
+    </h1>
 
     <div class="input">
       <label for="nome">
-        Nome de usuário:
+        {{langService.getTranslation("register", "username")}}
       </label>
-      <input type="text" id="nome" name="nome" placeholder="Digite seu nome de usuário do Mine" />
+      <input type="text" id="nome" name="nome" placeholder='{{langService.getTranslation("register", "username-placeholder")}}' />
 
     </div>
     <div class="input">
       <label for="email">
         Email:
       </label>
-      <input type="email" id="email" name="email" placeholder="Digite seu email" />
+      <input type="email" id="email" name="email" placeholder='{{langService.getTranslation("register", "email-placeholder")}}' />
 
     </div>
     <div class="input">
       <label for="senha">
-        Senha:
+        {{langService.getTranslation("register", "password")}}
       </label>
-      <input type="password" id="senha" name="senha" placeholder="Digite sua senha" />
+      <input type="password" id="senha" name="senha" placeholder='{{langService.getTranslation("register", "password-placeholder")}}' />
 
     </div>
 
     <div class="terms">
       <input type="checkbox" id="terms" name="terms" />
-      <label for="terms">
-        Ao se cadastrar você concorda com os <a routerLink="/{{this.langService.getLang()}}/terms">termos de uso e a política de privacidade.</a>
+      <label for="terms" >
+        {{langService.getTranslation("register", "before-terms")}}
+        <a routerLink="/{{this.langService.getLang()}}/terms">{{langService.getTranslation("register", "terms")}}</a>
       </label>
     </div>
 
     <a class="login-btn" href="">
-      Cadastrar
+      {{langService.getTranslation("register", "register")}}
     </a>
 
     <div class="pages">
-      <a routerLink="/{{this.langService.getLang()}}/auth/login" class="login">Login</a>
-      <a routerLink="/{{this.langService.getLang()}}/auth/register" class="cadastro">Cadastro</a>
+      <a routerLink="/{{this.langService.getLang()}}/auth/login" class="login">{{langService.getTranslation("register", "login-btn")}}</a>
+      <a routerLink="/{{this.langService.getLang()}}/auth/register" class="cadastro">{{langService.getTranslation("register", "register-btn")}}</a>
     </div>
 
     <a class="font-light" routerLink="/{{this.langService.getLang()}}">
-      <- Voltar para o site
+      {{langService.getTranslation("register", "back-to-website")}}
     </a>
 
   </form>

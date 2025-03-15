@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
 
     this.langService.lang$.subscribe(lang => {
-      this.langService.loadTranslations('login', lang);
+      this.langService.loadTranslations('register', lang);
     })
 
   }

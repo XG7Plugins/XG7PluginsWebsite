@@ -3,6 +3,7 @@ import {PluginService} from '../../../services/plugin/plugin.service';
 import {PrePlugin} from '../../../services/plugin/plugin';
 import {NgClass, NgForOf, NgIf, NgOptimizedImage} from '@angular/common';
 import {LangService} from '../../../services/lang/lang.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-pluginpage',
@@ -25,12 +26,16 @@ export class PluginpageComponent implements OnInit {
 
   constructor(
     private pluginsService: PluginService,
-    protected langs: LangService
+    protected langs: LangService,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this.langs.lang$.subscribe(lang => {
+    this.route.params.subscribe(params => {
+      const lang = params['lang'];
+      this.langs.setLang(lang);
       this.langs.loadTranslations('plugins', lang);
+
     });
     this.pluginsService.getSomePrePlugins(10).subscribe(plugins => {
       this.loadedPlugins = plugins;
