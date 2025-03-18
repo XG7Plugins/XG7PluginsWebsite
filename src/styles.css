@@ -163,3 +163,95 @@ app-img {
   100% { transform: rotate(360deg); }
 }
 
+/* Estilizando títulos */
+.markdown-container h1 {
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.markdown-container h2 {
+  font-size: 1.75em;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.markdown-container h3 {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+/* Parágrafos */
+.markdown-container p {
+  font-size: 1em;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+/* Listas */
+.markdown-container ul {
+  padding-left: 20px;
+}
+
+.markdown-container ul li {
+  list-style-type: disc;
+  margin-bottom: 5px;
+}
+
+/* Links */
+.markdown-container a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.markdown-container a:hover {
+  text-decoration: underline;
+}
+
+/* Códigos inline */
+.markdown-container code {
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+/* Blocos de código */
+.markdown-container pre {
+  background-color: #282c34;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  overflow-x: auto;
+}
+
+.markdown-container blockquote {
+  border-left: 4px solid #ccc; /* Barra lateral */
+  padding-left: 10px;
+  color: #aaa; /* Deixa mais discreto */
+  font-style: italic;
+  margin: 10px 0;
+}
+
+.markdown-container ul {
+  list-style-type: disc; /* Pontinhos nas listas não ordenadas */
+  padding-left: 20px; /* Espaço para os bullets */
+  margin-bottom: 10px;
+}
+
+.markdown-container ol {
+  list-style-type: decimal; /* Números nas listas ordenadas */
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.markdown-container li {
+  margin-bottom: 5px; /* Espaçamento entre os itens */
+}
+.markdown-container {
+  word-wrap: break-word; /* Quebra palavras muito longas */
+  overflow-wrap: break-word; /* Alternativa para compatibilidade */
+  white-space: normal; /* Garante que o texto não fique forçado em uma linha */
+}
+
+
