@@ -6,6 +6,7 @@
   "login": "Login",
   "login-btn": "Login",
   "register-btn": "Register",
-  "back-to-website": "<- Back to website"
+  "back-to-website": "<- Back to website",
+  "discord": "Login with Discord"
 
 }
