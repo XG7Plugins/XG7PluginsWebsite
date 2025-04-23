@@ -1,12 +1,14 @@
 export interface User {
-  username: string;
+  name: string;
   email: string;
 
   roles: Array<Role>;
   permissions: Array<Permission>;
 
-  icon_url: string;
+  profileIcon: string;
   about: string;
+
+  balance: number;
 }
 
 export enum Role {

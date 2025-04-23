@@ -29,7 +29,8 @@ html {
 
 html, body {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
 
   font-family: Inter, sans-serif;
 
@@ -38,6 +39,16 @@ html, body {
   overflow-x: hidden;
   margin: 0;
   padding: 0;
+
+  flex-direction: column; /* <- IMPORTANTE! */
+}
+
+app-root {
+  flex: 1;
+}
+
+main {
+  min-height: 100vh;
 }
 
 svg {
@@ -252,6 +263,11 @@ app-img {
   word-wrap: break-word; /* Quebra palavras muito longas */
   overflow-wrap: break-word; /* Alternativa para compatibilidade */
   white-space: normal; /* Garante que o texto não fique forçado em uma linha */
+}
+
+.screen {
+  width: 100vw;
+  min-height: 100vh;
 }
 
 

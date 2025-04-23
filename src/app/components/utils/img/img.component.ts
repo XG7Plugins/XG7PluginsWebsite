@@ -14,6 +14,8 @@ export class ImgComponent implements OnInit {
   @Input() alt: string = 'Imagem'; // Texto alternativo
   @Input() width: string = '100%'; // Largura opcional
   @Input() height: string = 'auto'; // Altura opcional
+  @Input() styles: string = "";
+  @Input() classes: string = "";
 
   isLoading = true; // Controle de carregamento
 

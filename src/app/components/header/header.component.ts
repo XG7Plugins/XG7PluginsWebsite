@@ -4,6 +4,7 @@ import {LangService} from '../../services/lang/lang.service';
 import {ModalComponent} from '../utils/modal/modal.component';
 import {RouterLink} from '@angular/router';
 import {UserService} from '../../services/user/user.service';
+import {ImgComponent} from '../utils/img/img.component';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,8 @@ import {UserService} from '../../services/user/user.service';
     NgOptimizedImage,
     ModalComponent,
     NgIf,
-    RouterLink
+    RouterLink,
+    ImgComponent
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'

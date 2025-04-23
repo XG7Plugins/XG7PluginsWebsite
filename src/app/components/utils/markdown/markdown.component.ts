@@ -9,6 +9,8 @@ import {marked} from 'marked';
 })
 export class MarkdownComponent {
   @Input() text: string = '';
+  @Input() styles: string = '';
+  @Input() classes: string = '';
 
   convert() {
     return marked(this.text);
