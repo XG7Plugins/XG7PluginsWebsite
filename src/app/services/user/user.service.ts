@@ -7,6 +7,8 @@ import {Permission, Role, User} from './user';
 })
 export class UserService {
 
+  // user: User | null = null;
+
   user: User | null = {
     name: "DaviXG7",
     email: "davisonic2010@gmail.com",
@@ -19,7 +21,6 @@ export class UserService {
 
     balance: 0
   };
-
   constructor(
     private http: HttpClient
   ) { }
@@ -38,6 +39,6 @@ export class UserService {
     if (this.user == null) {
       return false
     }
-    return this.http.get("http://localhost:asdsd/api/token=?");
+    return true;
   }
 }

@@ -34,7 +34,7 @@ input {
   text-align: start;
 
   width: 100%;
-  height: 57px;
+  height: 50px;
 
   background-color: #F1F1F1;
 
@@ -54,7 +54,7 @@ input:focus {
 
 .login-btn {
   background-color: #5053FF;
-  width: 45%;
+  width: 80%;
   height: 50px;
   color: white;
   border-radius: 20px;
@@ -143,6 +143,14 @@ input:focus {
   form {
     width: 50%;
   }
+}
+
+.password {
+  font-size: 10px;
+}
+.password a {
+  color: #5053FF;
+  text-decoration: underline;
 }
 
 

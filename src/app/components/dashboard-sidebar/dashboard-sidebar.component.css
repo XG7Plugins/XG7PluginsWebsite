@@ -1,6 +1,6 @@
 .sidebar {
   width: 250px;
-  background-color: #99def1;
+  background-color: #8ee4ff;
   color: white;
   padding: 20px;
   height: 100vh;
@@ -12,28 +12,42 @@
   justify-content: space-around;
 }
 
+@media (prefers-color-scheme: dark) {
+  .sidebar {
+    background-color: #00294b;
+    color: #ffffff;
+  }
+
+}
+
 .links {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
 
-  text-align: center;
+  text-align: left;
+
+  padding: 10px;
+
 
   border-right: none;
   border-left: none;
 }
 
-.links > * {
+.links > a {
   display: flex;
 
   align-items: center;
-  justify-content: center;
+  justify-content: left;
   text-align: center;
 
   height: 30px;
-  width: 80%;
-  margin: 10px;
+  width: 90%;
+  margin: 7px;
+}
+.links svg {
+  margin: 5px;
 }
 
 .user {
@@ -46,4 +60,17 @@
   justify-content: center;
 
   align-items: center;
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+}
+
+.top > a {
+  margin-bottom: 20px;
 }

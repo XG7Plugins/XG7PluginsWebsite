@@ -5,6 +5,7 @@ import {LoginComponent} from './components/pages/auth/login/login.component';
 import {RegisterComponent} from './components/pages/auth/register/register.component';
 import {TermsComponent} from './components/pages/terms/terms.component';
 import {DashboardComponent} from './components/pages/dashboard/dashboard.component';
+import {MainComponent} from './components/pages/dashboard/main/main.component';
 
 export const routes: Routes = [
   {
@@ -16,7 +17,9 @@ export const routes: Routes = [
       {
         path: 'dashboard',
         component: DashboardComponent,
-        children: [ ]
+        children: [
+          { path: '', component: MainComponent },
+        ]
       },
       {
         path: 'auth',
