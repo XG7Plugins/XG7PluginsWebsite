@@ -1,0 +1,11 @@
+main {
+  padding: 50px;
+
+  width: 100%;
+
+  @apply grid grid-cols-3
+}
+
+.balance {
+  @apply: bg-gray-200 dark:bg-gray-700;
+}
