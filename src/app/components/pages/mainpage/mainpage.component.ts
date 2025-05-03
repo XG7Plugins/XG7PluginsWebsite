@@ -9,7 +9,6 @@ import {PrePlugin} from '../../../../assets/types/plugin';
 @Component({
   selector: 'app-mainpage',
   imports: [
-    NgOptimizedImage,
     ImgComponent,
     RouterLink,
     NgForOf,
