@@ -21,6 +21,7 @@ import {ImgComponent} from '../utils/img/img.component';
 export class HeaderComponent implements OnInit {
 
   isMenuOpen = false;
+  isDropdownOpen = false;
 
   constructor(
     protected langService: LangService,
@@ -38,5 +39,11 @@ export class HeaderComponent implements OnInit {
     if (window.innerWidth > 640) {
       this.isMenuOpen = false
     }
+  }
+
+  toggleDropdown() {
+    const dropdown = document.getElementById("dropdown");
+    if (!dropdown) return;
+    dropdown.classList.toggle("hidden");
   }
 }

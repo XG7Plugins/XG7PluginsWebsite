@@ -25,6 +25,8 @@ main {
   height: 300px;
   width: 300px;
   margin-right: 10px;
+
+  animation: floatUpDown 3s ease-in-out infinite;
 }
 .plugins {
   margin: 30px;
@@ -89,5 +91,14 @@ main {
   }
   .plugins {
     align-items: center;
+  }
+}
+
+@keyframes floatUpDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px); /* ou +10px para ir pra baixo primeiro */
   }
 }

@@ -4,8 +4,8 @@ import {ImgComponent} from '../utils/img/img.component';
 import {LangService} from '../../services/lang/lang.service';
 import {UserService} from '../../services/user/user.service';
 import {RouterLink} from '@angular/router';
-import {Role} from '../../services/user/user';
 import {ModalComponent} from '../utils/modal/modal.component';
+import {Role} from '../../../assets/types/user';
 
 @Component({
   selector: 'app-dashboard-sidebar',

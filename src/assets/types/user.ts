@@ -1,3 +1,5 @@
+import {Key} from './keys';
+
 export interface User {
   name: string;
   email: string;
@@ -9,6 +11,8 @@ export interface User {
   about: string;
 
   balance: number;
+
+  keys: Array<Key>;
 }
 
 export enum Role {
@@ -23,8 +27,10 @@ export enum Permission {
   ALL,
 
   USER_EDIT,
+  USER_RESET_PASSWORD,
   USER_DELETE,
   USERS_VIEW,
+  USERS_EDIT,
 
   FORUM_EDIT,
   FORUM_DELETE,
@@ -32,9 +38,16 @@ export enum Permission {
 
   FORUM_MOD_BAN,
   FORUM_MOD_DELETE,
+  FORUM_MOD_EDIT,
 
   PLUGINS_CREATE,
   PLUGINS_DELETE,
+  PLUGINS_UPDATE,
+  PLUGINS_RATE,
   PLUGINS_EDIT,
-  PLUGINS_VIEW
+  PLUGINS_VIEW,
+  PLUGINS_SELLS,
+
+  COUPON_CREATE,
+  COUPON_DELETE
 }

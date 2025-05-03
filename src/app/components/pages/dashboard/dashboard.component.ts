@@ -11,8 +11,7 @@ import {DashboardFooterComponent} from './dashboard-footer/dashboard-footer.comp
   selector: 'app-dashboard',
   imports: [
     DashboardSidebarComponent,
-    RouterOutlet,
-    DashboardFooterComponent
+    RouterOutlet
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'

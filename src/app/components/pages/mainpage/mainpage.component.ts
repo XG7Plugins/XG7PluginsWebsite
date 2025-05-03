@@ -4,7 +4,7 @@ import {LangService} from '../../../services/lang/lang.service';
 import {ActivatedRoute, RouterLink} from '@angular/router';
 import {ImgComponent} from '../../utils/img/img.component';
 import {PluginService} from '../../../services/plugin/plugin.service';
-import {PrePlugin} from '../../../services/plugin/plugin';
+import {PrePlugin} from '../../../../assets/types/plugin';
 
 @Component({
   selector: 'app-mainpage',
@@ -43,7 +43,7 @@ export class MainpageComponent implements OnInit {
       this.langService.loadTranslations("landingpage", lang)
     });
 
-    this.pluginsService.getSomePrePlugins(5).subscribe(plugins => {
+    this.pluginsService.getSomePrePlugins(0,5).subscribe(plugins => {
       this.loadedPlugins = plugins;
       this.loadingPlugins = false;
     });

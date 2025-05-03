@@ -82,4 +82,37 @@ hr {
   @apply bg-gray-600;
 }
 
+.langs {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 50px;
+  border-radius: 20px;
+}
+
+.op {
+  position: absolute;
+
+  bottom: -57px;
+  left: -50px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+
+  width: 130px;
+
+  border: black 1px dashed;
+
+  @apply bg-gray-100 dark:bg-gray-700;
+}
+.op a {
+  text-decoration: none;
+  color: black;
+  padding: 5px;
+}
+
 
