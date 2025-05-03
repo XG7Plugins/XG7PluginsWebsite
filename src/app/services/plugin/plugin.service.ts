@@ -28,7 +28,7 @@ export class PluginService {
       version: '2.0',
       slogan: 'Melhor plugin de rk',
       iconUrl: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABpklEQVR4nO3dQY7DMAwFUEXv/9f2i1Jm2kKqZk5h4',
-      price: 0,
+      price: 1499,
       downloadLink: '',
       downloads: 10,
       updated: new Date(),

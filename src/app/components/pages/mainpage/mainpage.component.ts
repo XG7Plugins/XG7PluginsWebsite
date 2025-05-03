@@ -5,6 +5,7 @@ import {ActivatedRoute, RouterLink} from '@angular/router';
 import {ImgComponent} from '../../utils/img/img.component';
 import {PluginService} from '../../../services/plugin/plugin.service';
 import {PrePlugin} from '../../../../assets/types/plugin';
+import {UserService} from '../../../services/user/user.service';
 
 @Component({
   selector: 'app-mainpage',
@@ -27,7 +28,8 @@ export class MainpageComponent implements OnInit {
   constructor(
     protected langService: LangService,
     private route: ActivatedRoute,
-    private pluginsService: PluginService
+    private pluginsService: PluginService,
+    protected userService: UserService
   ) {}
 
   scrollToPlugins(event: MouseEvent) {

@@ -20,6 +20,13 @@ footer {
 }
 
 
+@media screen and (max-width: 80rem) {
+
+  .links {
+    width: 70%;
+  }
+}
+
 @media screen and (max-width: 50rem) {
   footer {
     width: 100vw;
@@ -29,15 +36,12 @@ footer {
   }
 
   .links {
-    width: 90%;
+    width: 95%;
+  }
+  h5 {
+    font-size: 0.8rem;
   }
 }
 
 
-@media screen and (max-width: 90rem) {
-
-  .links {
-    width: 70%;
-  }
-}
 

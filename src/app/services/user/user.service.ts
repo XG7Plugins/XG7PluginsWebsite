@@ -41,4 +41,11 @@ export class UserService {
     }
     return true;
   }
+
+  containsPlugin(pluginId: number) {
+    if (this.user === null) {
+      return false
+    }
+    return this.user.keys.some(key => key.plugin.id === pluginId);
+  }
 }

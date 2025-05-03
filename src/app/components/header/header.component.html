@@ -67,11 +67,11 @@
       <div class="menu">
         <h2 class="font-bold text-2xl">MENU</h2>
         <div class="w-full">
-          <a class="menu-link" href="">
+          <a class="menu-link" routerLink="">
             <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#e3e3e3"><path d="M264-216h96v-240h240v240h96v-348L480-726 264-564v348Zm-72 72v-456l288-216 288 216v456H528v-240h-96v240H192Zm288-327Z"/></svg>
             {{this.langService.getTranslation("header", "home")}}
           </a>
-          <a class="menu-link"  href="">
+          <a class="menu-link"  routerLink="{{langService.getLang()}}/plugins">
             <svg class="m-1" xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e3e3e3"><path d="M460-200h40v-74l140-140v-186H320v186l140 140v74Zm-80 80v-120L240-380v-220q0-33 23.5-56.5T320-680h40l-40 40v-200h80v160h160v-160h80v200l-40-40h40q33 0 56.5 23.5T720-600v220L580-240v120H380Zm100-280Z"/></svg>
             Plugins
           </a>

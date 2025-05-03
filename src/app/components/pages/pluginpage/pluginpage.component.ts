@@ -4,6 +4,7 @@ import {NgClass, NgForOf, NgIf, NgOptimizedImage} from '@angular/common';
 import {LangService} from '../../../services/lang/lang.service';
 import {ActivatedRoute} from '@angular/router';
 import {PrePlugin} from '../../../../assets/types/plugin';
+import {UserService} from '../../../services/user/user.service';
 
 @Component({
   selector: 'app-pluginpage',
@@ -28,7 +29,8 @@ export class PluginpageComponent implements OnInit {
   constructor(
     private pluginsService: PluginService,
     protected langs: LangService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    protected userService: UserService
   ) {}
 
   ngOnInit(): void {

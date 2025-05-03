@@ -10,6 +10,7 @@ main {
   display: flex;
   height: 100%;
   flex-wrap: wrap;
+  margin-top: 20px;
   justify-content: center;
 }
 .plugins-header {
