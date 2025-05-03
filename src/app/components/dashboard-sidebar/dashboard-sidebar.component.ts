@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import {Component, HostListener} from '@angular/core';
 import {NgIf, NgOptimizedImage} from "@angular/common";
 import {ImgComponent} from '../utils/img/img.component';
 import {LangService} from '../../services/lang/lang.service';
 import {UserService} from '../../services/user/user.service';
 import {RouterLink} from '@angular/router';
 import {Role} from '../../services/user/user';
+import {ModalComponent} from '../utils/modal/modal.component';
 
 @Component({
   selector: 'app-dashboard-sidebar',
@@ -12,12 +13,16 @@ import {Role} from '../../services/user/user';
     NgOptimizedImage,
     ImgComponent,
     RouterLink,
-    NgIf
+    NgIf,
+    ModalComponent
   ],
   templateUrl: './dashboard-sidebar.component.html',
   styleUrl: './dashboard-sidebar.component.css'
 })
 export class DashboardSidebarComponent {
+
+  isMenuOpen = false;
+
   constructor(
     protected langService: LangService,
     protected userService: UserService
@@ -37,5 +42,12 @@ export class DashboardSidebarComponent {
     if (user === null) return false
 
     return user.roles.includes(Role.ADMIN)
+  }
+
+  @HostListener('window:resize', ['$event.target.innerWidth'])
+  onResize() {
+    if (window.innerWidth > 640) {
+      this.isMenuOpen = false
+    }
   }
 }

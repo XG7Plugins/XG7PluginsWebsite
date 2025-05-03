@@ -1,11 +1,54 @@
+@import "tailwindcss";
+
+
+
 main {
-  padding: 50px;
 
-  width: 100%;
+  padding: 0 50px 50px 300px;
 
-  @apply grid grid-cols-3
+  min-height: 100vh;
+
+  width: 100vw;
+
+  @apply grid grid-cols-6 not-sm:p-0;
 }
 
-.balance {
-  @apply: bg-gray-200 dark:bg-gray-700;
+main > * {
+  margin: 10px;
 }
+
+.balance-plugins {
+  @apply bg-gray-200 dark:bg-gray-800;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  border-radius: 15px;
+
+  padding: 20px;
+
+}
+
+hr {
+  height: 85%;
+  width: 2px;
+
+}
+
+.last-updates {
+  @apply bg-gray-200 dark:bg-gray-800;
+
+  border-radius: 15px;
+
+  padding: 20px;
+}
+
+.most-posts {
+  @apply bg-gray-200 dark:bg-gray-800;
+
+  border-radius: 15px;
+
+  padding: 20px;
+}
+

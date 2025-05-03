@@ -4,12 +4,15 @@ import {LangService} from '../../../services/lang/lang.service';
 import {UserService} from '../../../services/user/user.service';
 import {HttpClient} from '@angular/common/http';
 import {Router, RouterOutlet} from '@angular/router';
+import {FooterComponent} from '../../footer/footer.component';
+import {DashboardFooterComponent} from './dashboard-footer/dashboard-footer.component';
 
 @Component({
   selector: 'app-dashboard',
   imports: [
     DashboardSidebarComponent,
-    RouterOutlet
+    RouterOutlet,
+    DashboardFooterComponent
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'

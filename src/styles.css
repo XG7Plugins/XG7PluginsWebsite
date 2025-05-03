@@ -193,6 +193,25 @@ app-img {
   margin-bottom: 6px;
 }
 
+/* Estilizando títulos */
+h1 {
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 1.75em;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+h3 {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
 /* Parágrafos */
 .markdown-container p {
   font-size: 1em;

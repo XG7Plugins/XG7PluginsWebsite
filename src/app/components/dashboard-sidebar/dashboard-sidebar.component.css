@@ -1,23 +1,15 @@
 .sidebar {
+  position: fixed;
   width: 250px;
   background-color: #8ee4ff;
   color: white;
   padding: 20px;
   height: 100vh;
 
-  display: flex;
   flex-direction: column;
 
   align-items: center;
   justify-content: space-around;
-}
-
-@media (prefers-color-scheme: dark) {
-  .sidebar {
-    background-color: #00294b;
-    color: #ffffff;
-  }
-
 }
 
 .links {
@@ -71,6 +63,49 @@
   width: 100%;
 }
 
+header {
+  top: 0;
+  left: 0;
+  position: fixed;
+  height: 70px;
+  width: 100vw;
+
+  background-color: #8ee4ff;
+
+  border-radius: 0 0 20px 20px;
+
+  align-items: center;
+  justify-content: space-between;
+}
+
+header > * {
+  margin: 10px;
+}
+
+hr {
+  height: 85%;
+  width: 2px;
+
+}
+
 .top > a {
   margin-bottom: 20px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .sidebar {
+    background-color: #00294b;
+    color: #ffffff;
+  }
+
+  header {
+    background-color: #00294b;
+    color: #ffffff;
+  }
+
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
 }

@@ -15,12 +15,28 @@ import {NgIf} from '@angular/common';
 export class AppComponent {
   title = 'XG7Plugins';
 
+  disabledHeader = [
+    "register",
+    "login",
+    "dashboard",
+  ];
+
+  disabledFooter = [
+    "register",
+    "login",
+    "dashboard"
+  ];
+
   constructor(
     private route: Router
   ) {
   }
 
-  isAuthPage() {
-    return this.route.url.includes("register") || this.route.url.includes("login") || this.route.url.includes("dashboard");
+  isDisabledHeader() {
+    return this.disabledHeader.some((page) => this.route.url.includes(page));
+  }
+
+  isDisabledFooter() {
+    return this.disabledFooter.some((page) => this.route.url.includes(page));
   }
 }
