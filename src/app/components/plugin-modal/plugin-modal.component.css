@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  overflow: auto;
+  border-radius: 20px;
+
+  @apply bg-white dark:bg-gray-700;
+}
+
+.plugin {
+  width: 50%;
+  height: 100%;
+
+  display: flex;
+
+  align-items: center;
+}
+
+.plugin img {
+  width: auto;
+  height: 90%;
+  margin-right: 10px;
+
+  border: rgba(0, 255, 255, 0.6) solid 3px;
+  background: rgba(0, 255, 255, 0.3);
+  border-radius: 20px;
+}
+
+menu {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+
+  @apply bg-gray-100 dark:bg-gray-700 border-b border-gray-500 dark:border-gray-600;
+}
+
+.lselected {
+  text-decoration: underline;
+}
+
+main {
+  display: flex;
+
+  width: 100%;
+  height: calc(100% - 35% - 50px);
+
+  min-height: 0;
+
+  @apply bg-gray-100 dark:bg-gray-700;
+}
+
+.text-container {
+  width: 65%;
+  height: 100%;
+
+  padding: 10px;
+
+  overflow: auto;
+
+  @apply border-r border-gray-500 dark:border-gray-600;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 35%;
+  height: 100%;
+
+  overflow: auto;
+
+  @apply border-l border-gray-500 dark:border-gray-600;
+}

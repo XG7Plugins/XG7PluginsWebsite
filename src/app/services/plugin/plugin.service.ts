@@ -42,11 +42,11 @@ export class PluginService {
       name: 'XG7Lobby',
       version: '2.0',
       slogan: 'Melhor plugin de lobby',
-      description: '# Baixeaq',
-      iconUrl: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABpklEQVR4nO3dQY7DMAwFUEXv/9f2i1Jm2kKqZk5h4',
+      description: '# Baixeaq o pl legalzin \n namoral mt bom OOOO',
+      iconUrl: 'https://www.spigotmc.org/data/resource_icons/112/112029.jpg?1741197551',
       price: 0,
       downloadLink: '',
-      githubLink: 'linkuin',
+      githubLink: '',
       downloads: 3,
       created: new Date(),
       updated: new Date(),
@@ -72,7 +72,7 @@ export class PluginService {
       slogan: 'Melhor plugin de rk',
       description: '# Baixeaq',
       iconUrl: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABpklEQVR4nO3dQY7DMAwFUEXv/9f2i1Jm2kKqZk5h4',
-      price: 0,
+      price: 1059,
       downloadLink: '',
       githubLink: 'linkuin',
       downloads: 3,
@@ -104,7 +104,8 @@ export class PluginService {
     // return this.http.get('https://api.example.com/plugins');
   }
   getPlugin(id: number) {
-    return this.http.get(`https://api.example.com/plugins/${id}`);
+    // return this.http.get(`https://api.example.com/plugins/${id}`);
+    return of(this.loadedPlugins.find(plugin => plugin.id === id) || null);
   }
   getSomePrePlugins(start: number, end: number): Observable<PrePlugin[]> {
     return of(this.loadedPrePlugins.slice(start, end));

@@ -22,6 +22,12 @@ header {
   height: 25px;
 }
 
+@media screen and (max-width: 70rem) {
+  header {
+    width: 90vw;
+  }
+}
+
 @media screen and (max-width: 40rem) {
   header {
     width: 100vw;

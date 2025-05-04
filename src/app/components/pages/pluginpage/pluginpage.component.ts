@@ -1,17 +1,19 @@
-import {Component, HostListener, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
 import {PluginService} from '../../../services/plugin/plugin.service';
 import {NgClass, NgForOf, NgIf, NgOptimizedImage} from '@angular/common';
 import {LangService} from '../../../services/lang/lang.service';
 import {ActivatedRoute} from '@angular/router';
 import {PrePlugin} from '../../../../assets/types/plugin';
 import {UserService} from '../../../services/user/user.service';
+import {PluginModalComponent} from '../../plugin-modal/plugin-modal.component';
 
 @Component({
   selector: 'app-pluginpage',
   imports: [
     NgClass,
     NgForOf,
-    NgIf
+    NgIf,
+    PluginModalComponent
   ],
   templateUrl: './pluginpage.component.html',
   styleUrl: './pluginpage.component.css'
@@ -25,6 +27,8 @@ export class PluginpageComponent implements OnInit {
   maxPages = 1;
 
   pluginForPage = 10;
+
+  @ViewChild('pluginModal') pluginModal!: PluginModalComponent;
 
   constructor(
     private pluginsService: PluginService,
