@@ -1,0 +1,10 @@
+<div class="rating-container"
+     (mouseleave)="hoverRating = 0">
+  <ng-container *ngFor="let star of [1,2,3,4,5]">
+    <div class="star"
+         (mousemove)="onHover($event, star)"
+         (click)="setRating(hoverRating || star)">
+      <div class="star-fill" [style.width.%]="getFillPercent(star)"></div>
+    </div>
+  </ng-container>
+</div>

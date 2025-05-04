@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgClass, NgForOf, NgIf, NgOptimizedImage} from '@angular/common';
 import {LangService} from '../../../services/lang/lang.service';
 import {ActivatedRoute, RouterLink} from '@angular/router';
@@ -6,6 +6,8 @@ import {ImgComponent} from '../../utils/img/img.component';
 import {PluginService} from '../../../services/plugin/plugin.service';
 import {PrePlugin} from '../../../../assets/types/plugin';
 import {UserService} from '../../../services/user/user.service';
+import {PluginModalComponent} from '../../plugin-modal/plugin-modal.component';
+import {CartService} from '../../../services/cart/cart.service';
 
 @Component({
   selector: 'app-mainpage',
@@ -14,7 +16,8 @@ import {UserService} from '../../../services/user/user.service';
     RouterLink,
     NgForOf,
     NgIf,
-    NgClass
+    NgClass,
+    PluginModalComponent
   ],
   templateUrl: './mainpage.component.html',
   styleUrl: './mainpage.component.css'
@@ -25,11 +28,15 @@ export class MainpageComponent implements OnInit {
 
   loadingPlugins = true
 
+  @ViewChild('pluginModal') pluginModal!: PluginModalComponent;
+
+
   constructor(
     protected langService: LangService,
     private route: ActivatedRoute,
     private pluginsService: PluginService,
-    protected userService: UserService
+    protected userService: UserService,
+    protected cartService: CartService,
   ) {}
 
   scrollToPlugins(event: MouseEvent) {

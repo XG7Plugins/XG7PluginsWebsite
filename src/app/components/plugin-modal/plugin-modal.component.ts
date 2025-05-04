@@ -1,23 +1,24 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {ModalComponent} from '../utils/modal/modal.component';
-import {ImgComponent} from '../utils/img/img.component';
-import {NgClass, NgIf} from '@angular/common';
-import {RouterLink} from '@angular/router';
+import {NgClass, NgForOf, NgIf} from '@angular/common';
 import {LangService} from '../../services/lang/lang.service';
 import {UserService} from '../../services/user/user.service';
 import {PluginService} from '../../services/plugin/plugin.service';
-import {PrePlugin, Plugin} from '../../../assets/types/plugin';
+import {Plugin} from '../../../assets/types/plugin';
 import {MarkdownComponent} from '../utils/markdown/markdown.component';
+import {StarsComponent} from '../utils/stars/stars.component';
+import {StarsSelectorComponent} from '../utils/stars-selector/stars-selector.component';
 
 @Component({
   selector: 'app-plugin-modal',
   imports: [
     ModalComponent,
-    ImgComponent,
     NgIf,
-    RouterLink,
     NgClass,
-    MarkdownComponent
+    MarkdownComponent,
+    NgForOf,
+    StarsComponent,
+    StarsSelectorComponent
   ],
   templateUrl: './plugin-modal.component.html',
   styleUrl: './plugin-modal.component.css'
@@ -48,17 +49,27 @@ export class PluginModalComponent implements OnInit {
     this.isModalOpen = true;
   }
 
-  closeModal() {
-    this.isModalOpen = false;
-    this.plugin = null;
-  }
-
   setPage(number = 0) {
     this.page = number;
   }
 
   isSelected(selected: number) {
     return this.page == selected;
+  }
+
+  averageStars() {
+    if (this.plugin == null) return 0;
+    const total = this.plugin.ratings.reduce((sum, r) => sum + r.rating, 0);
+    return this.plugin?.ratings.length > 0 ? total / this.plugin.ratings.length : 0;
+  }
+
+  @HostListener('window:resize', ['$event.target.innerWidth'])
+  onResize() {
+    if (window.innerWidth > 640) {
+      if (this.page == 5) {
+        this.page = 0;
+      }
+    }
   }
 
 

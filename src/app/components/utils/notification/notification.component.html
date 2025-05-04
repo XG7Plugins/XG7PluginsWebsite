@@ -1,0 +1,12 @@
+<div
+  *ngIf="(getMessage() | async) as notif"
+  [ngClass] = "{
+    'bg-green-500': notif.type === 'SUCCESS',
+    'bg-red-500': notif.type === 'ERROR',
+    'bg-blue-500': notif.type === 'INFO',
+    'bg-yellow-500': notif.type === 'ALERT'
+  }"
+  class="fixed bottom-5 left-1/2 transform -translate-x-1/2 text-white px-4 py-3 rounded shadow-lg animate-fade-in-out">
+  {{ notif.message }}
+</div>
+
