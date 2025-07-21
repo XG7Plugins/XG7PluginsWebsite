@@ -3,7 +3,7 @@
 .modal {
   display: flex;
   flex-direction: column;
-  height: 80vh;
+  height: 90vh;
   overflow: auto;
   border-radius: 20px;
 
@@ -31,7 +31,7 @@
 
 menu {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   width: 100%;
 
@@ -40,12 +40,23 @@ menu {
   @apply bg-gray-100 dark:bg-gray-700 border-b border-gray-500 dark:border-gray-600;
 }
 
+menu > div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+
+  @apply bg-gray-100 dark:bg-gray-700 sm:w-[75%] w-full;
+}
+
 .lselected {
   text-decoration: underline;
 }
 
 main {
   display: flex;
+
+  margin: 0;
 
   width: 100%;
   height: calc(100% - 35% - 50px);

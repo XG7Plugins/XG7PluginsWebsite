@@ -6,8 +6,7 @@ import {UserService} from '../../services/user/user.service';
 import {PluginService} from '../../services/plugin/plugin.service';
 import {Plugin} from '../../../assets/types/plugin';
 import {MarkdownComponent} from '../utils/markdown/markdown.component';
-import {StarsComponent} from '../utils/stars/stars.component';
-import {StarsSelectorComponent} from '../utils/stars-selector/stars-selector.component';
+import {CartService} from '../../services/cart/cart.service';
 
 @Component({
   selector: 'app-plugin-modal',
@@ -16,9 +15,7 @@ import {StarsSelectorComponent} from '../utils/stars-selector/stars-selector.com
     NgIf,
     NgClass,
     MarkdownComponent,
-    NgForOf,
-    StarsComponent,
-    StarsSelectorComponent
+    NgForOf
   ],
   templateUrl: './plugin-modal.component.html',
   styleUrl: './plugin-modal.component.css'
@@ -34,11 +31,12 @@ export class PluginModalComponent implements OnInit {
     protected langService: LangService,
     protected userService: UserService,
     private pluginService: PluginService,
+    protected cartService: CartService,
   ) {}
 
   ngOnInit(): void {
     this.langService.lang$.subscribe(lang => {
-      this.langService.loadTranslations('header', lang);
+      this.langService.loadTranslations('plugins', lang);
     });
   }
 
@@ -55,12 +53,6 @@ export class PluginModalComponent implements OnInit {
 
   isSelected(selected: number) {
     return this.page == selected;
-  }
-
-  averageStars() {
-    if (this.plugin == null) return 0;
-    const total = this.plugin.ratings.reduce((sum, r) => sum + r.rating, 0);
-    return this.plugin?.ratings.length > 0 ? total / this.plugin.ratings.length : 0;
   }
 
   @HostListener('window:resize', ['$event.target.innerWidth'])

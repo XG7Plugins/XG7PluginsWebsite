@@ -1,4 +1,4 @@
-<div class="backdrop" (click)="closeModal()">
+<div class="backdrop" [ngClass]="blur ? 'blurbg' : ''" (click)="closeModal()">
   <div (click)="$event.stopPropagation()">
     <ng-content></ng-content>
   </div>

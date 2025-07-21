@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+main {
+
+  padding: 0 50px 50px 300px;
+
+  min-height: 100vh;
+
+  width: 100vw;
+
+
+  @apply grid grid-cols-6 not-sm:p-0;
+}

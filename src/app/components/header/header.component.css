@@ -6,7 +6,6 @@ header {
   padding: 0 10px 0 10px;
   align-items: center;
   height: 80px;
-  border: 4px solid rgba(0,0,0,0.25);
   border-radius: 0 0 9px 9px;
   border-top: none;
   width: 75vw;
@@ -32,8 +31,6 @@ header {
   header {
     width: 100vw;
 
-    border: none;
-    border-bottom: 4px solid rgba(0,0,0,0.25);
   }
 }
 

@@ -6,6 +6,7 @@ import {RegisterComponent} from './components/pages/auth/register/register.compo
 import {TermsComponent} from './components/pages/terms/terms.component';
 import {DashboardComponent} from './components/pages/dashboard/dashboard.component';
 import {MainComponent} from './components/pages/dashboard/main/main.component';
+import {YourPluginsComponent} from './components/pages/dashboard/your-plugins/your-plugins.component';
 
 export const routes: Routes = [
   {
@@ -19,6 +20,7 @@ export const routes: Routes = [
         component: DashboardComponent,
         children: [
           { path: '', component: MainComponent },
+          { path: 'your-plugins', component: YourPluginsComponent },
         ]
       },
       {

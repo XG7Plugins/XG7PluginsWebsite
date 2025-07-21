@@ -12,7 +12,6 @@ export type PrePlugin = {
   downloads: number;
 
   updated: Date;
-  rating: number;
 
   categories: Array<Category>;
 
@@ -38,23 +37,11 @@ export type Plugin = {
   created: Date;
   updated: Date;
 
-  ratingNumber: number;
-  ratings: Array<Ratings>;
-
   commands: string;
   permissions: string;
 
   categories: Array<Category>;
   changelog: Array<Update>;
-
-}
-
-export type Ratings = {
-
-  userImageUrl: string;
-  userName: string;
-  rating: number;
-  comment: string;
 
 }
 

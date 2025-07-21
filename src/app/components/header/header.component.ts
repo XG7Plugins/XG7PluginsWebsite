@@ -5,6 +5,7 @@ import {ModalComponent} from '../utils/modal/modal.component';
 import {RouterLink} from '@angular/router';
 import {UserService} from '../../services/user/user.service';
 import {ImgComponent} from '../utils/img/img.component';
+import {CartComponent} from '../cart/cart.component';
 
 @Component({
   selector: 'app-header',
@@ -13,7 +14,8 @@ import {ImgComponent} from '../utils/img/img.component';
     ModalComponent,
     NgIf,
     RouterLink,
-    ImgComponent
+    ImgComponent,
+    CartComponent
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'

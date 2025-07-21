@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Permission, Role, User} from '../../../assets/types/user';
 import {PluginService} from '../plugin/plugin.service';
-import {Ratings} from '../../../assets/types/plugin';
 
 @Injectable({
   providedIn: 'root'
@@ -51,15 +50,5 @@ export class UserService {
       return false
     }
     return this.user.keys.some(key => key.plugin.id === pluginId);
-  }
-
-  getRatingFromPlugin(pluginId: number): Ratings | null {
-    if (this.user === null) {
-      return null
-    }
-    return {
-      comment: 'mt legau', rating: 4.3, userImageUrl: this.user.profileIcon, userName: this.user.name
-    }
-    // return this.http.get<Ratings>(`/api/plugins/rating/${pluginId}/`, {})
   }
 }
