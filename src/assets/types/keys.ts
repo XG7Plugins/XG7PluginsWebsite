@@ -1,17 +1,17 @@
 import {PrePlugin} from './plugin';
 
-export type Key = {
-  id: number;
-  key: string;
+export type PurchasedPlugin = {
+  plugin: PrePlugin
 
-  plugin: PrePlugin;
-
-  keyIps: Array<KeyIps>;
+  keys: Array<Key>
 }
 
-export type KeyIps = {
-  id: number;
+export type Key = {
 
-  ip: "string"
+  id: number
+
+  ip: string
   port: number
+
+
 }

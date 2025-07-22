@@ -30,7 +30,7 @@
           <button class="btn h-10 w-1/2 m-2 flex justify-center items-center" *ngIf="!this.userService.containsPlugin(plugin.id) && plugin.price != 0" (click)="cartService.addToCart({id: plugin.id,imageUrl: plugin.iconUrl,name: plugin.name, price: plugin.price, quantity: 1})">
             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M440-600v-120H320v-80h120v-120h80v120h120v80H520v120h-80ZM280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM40-800v-80h131l170 360h280l156-280h91L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68.5-39t-1.5-79l54-98-144-304H40Z"/></svg>
           </button>
-          <a href="{{plugin.downloadLink}}" target="_blank" class="btn w-32 h-10 m-2 flex items-center justify-center" *ngIf="this.userService.containsPlugin(plugin.id) || plugin.price == 0" >{{ langService.getTranslation("landingpage", "download") }}</a>
+          <a href="{{plugin.downloadLink}}" target="_blank" class="btn w-1/2 h-10 m-2 flex items-center justify-center" *ngIf="this.userService.containsPlugin(plugin.id) || plugin.price == 0" ><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/></svg></a>
           <button (click)="pluginModal.openModal(plugin.id)" class="btn w-32 h-10 m-2" >{{ langService.getTranslation("landingpage", "see_more") }}</button>
         </div>
 

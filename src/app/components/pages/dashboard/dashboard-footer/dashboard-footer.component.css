@@ -1,16 +1,27 @@
+
+@import "tailwindcss";
+
 footer {
+
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
 
-  border: 4px solid rgba(0,0,0,0.25);
+  padding: 15px;
+
   border-radius: 9px 9px 0 0;
   border-bottom: none;
 
   width: calc(100vw - 250px);
 
   margin-left: 249px;
+
+
+}
+
+a, p, h1, h2, h3, h4, h5, h6 {
+  @apply text-white;
 
 }
 
@@ -21,6 +32,27 @@ footer {
   margin: 15px 15px 20px;
 }
 
+svg {
+  @apply fill-gray-50
+}
+
+@media screen and (max-width: 80rem) {
+
+  .links {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 50rem) {
+
+  .links {
+    width: 95%;
+  }
+  h5 {
+    font-size: 0.8rem;
+  }
+}
+
 
 @media screen and (max-width: 40rem) {
   footer {
@@ -29,7 +61,6 @@ footer {
     margin: 0;
 
     border: none;
-    border-top: 4px solid rgba(0,0,0,0.25);
   }
 
   .links {

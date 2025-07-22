@@ -21,7 +21,29 @@ export class UserService {
     about: "Sou muito legau",
 
     balance: 0,
-    keys: []
+    purchasedPlugins: [
+      {
+        plugin: {
+          id: 1,
+          name: 'XG7Lobby',
+          version: '2.0',
+          slogan: 'Melhor plugin de lobby',
+          iconUrl: 'https://www.spigotmc.org/data/resource_icons/112/112029.jpg?1741197551',
+          price: 0,
+          downloadLink: '',
+          downloads: 10,
+          updated: new Date(),
+          categories: ["FUN","UTILS"]
+        },
+        keys: [
+          {
+            id: 1,
+            ip: 'asdasdadad',
+            port: 3306
+          }
+        ]
+      }
+    ]
   };
   constructor(
     private http: HttpClient,
@@ -39,16 +61,20 @@ export class UserService {
   }
 
   isValid() {
-    if (this.user == null) {
-      return false
-    }
-    return true;
+    return this.user != null;
   }
 
   containsPlugin(pluginId: number) {
     if (this.user === null) {
       return false
     }
-    return this.user.keys.some(key => key.plugin.id === pluginId);
+    return this.user.purchasedPlugins.some(pp => pp.plugin.id === pluginId);
+  }
+
+  getPurchasedPlugins() {
+    if (this.user === null) {
+      return [];
+    }
+    return this.user.purchasedPlugins;
   }
 }
