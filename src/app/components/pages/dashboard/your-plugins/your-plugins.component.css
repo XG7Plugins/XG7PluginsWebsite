@@ -20,7 +20,7 @@ main {
   color: #595959;
   text-align: start;
 
-  width: 60vw;
+  @apply w-[60vw] not-sm:w-[90vw];
   height: 50px;
 
   background-color: #F1F1F1;
@@ -42,15 +42,17 @@ main {
 }
 
 .plugin {
-  width: 60vw;
-  height: 180px;
+  @apply w-[60vw] not-sm:w-[90vw] not-sm:flex-col;
+
+  @apply flex not-sm:flex-col justify-between items-center;
+
+  @apply h-[180px] not-sm:h-[300px];
 
   padding: 20px;
 
-  display: flex;
-  justify-content: space-between;
-
   margin: 20px;
+
+  gap: 10px;
 
   @apply bg-gray-200 dark:bg-gray-800 rounded-2xl;
 }

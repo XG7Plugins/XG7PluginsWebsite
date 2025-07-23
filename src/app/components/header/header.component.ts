@@ -6,6 +6,7 @@ import {RouterLink} from '@angular/router';
 import {UserService} from '../../services/user/user.service';
 import {ImgComponent} from '../utils/img/img.component';
 import {CartComponent} from '../cart/cart.component';
+import {SearchComponent} from '../search/search.component';
 
 @Component({
   selector: 'app-header',
@@ -15,7 +16,8 @@ import {CartComponent} from '../cart/cart.component';
     NgIf,
     RouterLink,
     ImgComponent,
-    CartComponent
+    CartComponent,
+    SearchComponent
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'

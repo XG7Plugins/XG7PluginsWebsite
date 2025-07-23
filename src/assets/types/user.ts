@@ -1,4 +1,4 @@
-import {PurchasedPlugin} from './keys';
+import {PurchasedPlugin, Purshases} from './keys';
 
 export interface User {
   name: string;
@@ -13,6 +13,7 @@ export interface User {
   balance: number;
 
   purchasedPlugins: Array<PurchasedPlugin>;
+  purchases: Array<Purshases>;
 }
 
 export enum Role {

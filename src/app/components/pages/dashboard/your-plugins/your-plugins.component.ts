@@ -4,6 +4,8 @@ import {LangService} from '../../../../services/lang/lang.service';
 import {UserService} from '../../../../services/user/user.service';
 import {NgForOf, NgIf} from '@angular/common';
 import {ImgComponent} from '../../../utils/img/img.component';
+import {LicenceModalComponent} from '../../../licence-modal/licence-modal.component';
+import {FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-your-plugins',
@@ -11,12 +13,16 @@ import {ImgComponent} from '../../../utils/img/img.component';
     DashboardFooterComponent,
     NgIf,
     NgForOf,
-    ImgComponent
+    ImgComponent,
+    LicenceModalComponent,
+    FormsModule
   ],
   templateUrl: './your-plugins.component.html',
   styleUrl: './your-plugins.component.css'
 })
 export class YourPluginsComponent {
+
+  protected pesquisa: string = '';
 
   constructor(
     protected langService: LangService,
@@ -24,6 +30,10 @@ export class YourPluginsComponent {
   ) {}
 
   getPlugins() {
-    return this.userService.getPurchasedPlugins()
+    return this.userService.getPurchasedPlugins().filter(pp => pp.plugin.name.toLowerCase().includes(this.pesquisa.toLowerCase()));
+  }
+
+  getTotalPlugins() {
+    return this.userService.getPurchasedPlugins();
   }
 }

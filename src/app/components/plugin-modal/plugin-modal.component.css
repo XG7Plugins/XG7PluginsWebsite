@@ -7,7 +7,7 @@
   overflow: auto;
   border-radius: 20px;
 
-  @apply bg-white dark:bg-gray-700;
+  @apply bg-white dark:bg-gray-800 border border-gray-500 dark:border-gray-600;
 }
 
 .plugin {
@@ -37,7 +37,7 @@ menu {
 
   padding: 5px;
 
-  @apply bg-gray-100 dark:bg-gray-700 border-b border-gray-500 dark:border-gray-600;
+  @apply bg-gray-100 dark:bg-gray-800 border-b border-gray-500 dark:border-gray-600;
 }
 
 menu > div {
@@ -46,7 +46,7 @@ menu > div {
   align-items: center;
 
 
-  @apply bg-gray-100 dark:bg-gray-700 sm:w-[75%] w-full;
+  @apply bg-gray-100 dark:bg-gray-800 sm:w-[75%] w-full;
 }
 
 .lselected {
@@ -63,18 +63,18 @@ main {
 
   min-height: 0;
 
-  @apply bg-gray-100 dark:bg-gray-700;
+  @apply bg-gray-100 dark:bg-gray-800;
 }
 
 .text-container {
   width: 65%;
-  height: 100%;
+  height: 90%;
 
   padding: 10px;
 
   overflow: auto;
 
-  @apply border-r border-gray-500 dark:border-gray-600 not-sm:w-full not-sm:border-none;
+  @apply border-b border-gray-500 dark:border-gray-600 not-sm:w-full not-sm:border-none;
 }
 
 .sidebar {
@@ -84,7 +84,7 @@ main {
   align-items: center;
 
   width: 35%;
-  height: 100%;
+  height: 90%;
 
   overflow: auto;
 

@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Permission, Role, User} from '../../../assets/types/user';
 import {PluginService} from '../plugin/plugin.service';
+import {Purshases} from '../../../assets/types/keys';
 
 @Injectable({
   providedIn: 'root'
@@ -33,16 +34,65 @@ export class UserService {
           downloadLink: '',
           downloads: 10,
           updated: new Date(),
-          categories: ["FUN","UTILS"]
+          categories: ["FUN", "UTILS"]
         },
         keys: [
           {
             id: 1,
-            ip: 'asdasdadad',
+            ip: '192.168.0.1',
+            port: 3306
+          },
+          {
+            id: 2,
+            ip: '192.168.0.2',
+            port: 3306
+          }
+        ]
+      },
+      {
+        plugin: {
+          id: 1,
+          name: 'XG7Menus',
+          version: '1.0',
+          slogan: 'Melhor plugin de menus',
+          iconUrl: 'https://www.spigotmc.org/data/resource_icons/112/112029.jpg?1741197551',
+          price: 0,
+          downloadLink: '',
+          downloads: 10,
+          updated: new Date(),
+          categories: ["FUN", "UTILS"]
+        },
+        keys: [
+          {
+            id: 3,
+            ip: '192.168.32421.1',
+            port: 3306
+          },
+          {
+            id: 4,
+            ip: '192.21342341.0.2',
             port: 3306
           }
         ]
       }
+    ],
+    purchases: [
+      {
+        id: 0,
+        date: new Date(),
+        price: 10000,
+        items: [
+          {
+            name: 'XG7Lobby (2x)',
+            price: 6000
+          },
+          {
+            name: 'XG7Lobby (1x)',
+            price: 4000
+          },
+        ]
+      },
+
     ]
   };
   constructor(
@@ -76,5 +126,12 @@ export class UserService {
       return [];
     }
     return this.user.purchasedPlugins;
+  }
+
+  getPurchases() {
+    if (this.user === null) {
+      return [];
+    }
+    return this.user.purchases;
   }
 }

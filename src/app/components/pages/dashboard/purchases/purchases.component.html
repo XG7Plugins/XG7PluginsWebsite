@@ -1,0 +1,48 @@
+
+
+<h1 class="pl-[310px] mt-3 not-sm:pl-2 not-sm:mt-20">Minhas compras: </h1>
+
+
+<main>
+
+  <div class="w-full flex flex-wrap not-sm:flex-col items-center" id="plugins" *ngIf="getPurchases().length !== 0">
+
+    <div class="purchases" *ngFor="let purchases of getPurchases()">
+
+        <div class="w-[90%] flex justify-between items-center border-b border-b-gray-600">
+          <h2 class="flex">Compra #{{purchases.id}}</h2>
+          <p style="color: rgba(255,255,255,0.5)">{{purchases.date}}</p>
+        </div>
+        <div class="w-[90%] flex flex-col gap-2">
+          <div class="w-full flex gap-2">
+            <p style="color: rgba(255,255,255,0.5)">Total:</p>
+            <p style="color: #60e060;">R${{(purchases.price / 100).toFixed(2)}}</p>
+          </div>
+          <div class="w-full flex flex-col gap-3">
+            <p style="color: rgba(255,255,255,0.5)">Itens:</p>
+            <ul class="list-disc list-inside text-white">
+              <li
+                *ngFor="let item of purchases.items"
+                class="w-full flex gap-2 items-start pl-4•"
+              >
+                • {{ item.name }}: <span style="color: #60e060;">R${{(item.price / 100).toFixed(2)}}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+
+
+    </div>
+
+  </div>
+
+  <div class="w-full h-full flex items-center justify-center" *ngIf="getPurchases().length === 0">
+
+    <h1>Você não possui nenhuma compra ;(</h1>
+
+  </div>
+</main>
+
+<app-dashboard-footer></app-dashboard-footer>
+

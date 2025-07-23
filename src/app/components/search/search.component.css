@@ -1,0 +1,61 @@
+@import 'tailwindcss';
+
+
+.plugins {
+  width: 80vw;
+  height: 80vh;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.buscar {
+  color: #595959;
+  text-align: start;
+
+  @apply w-[60vw] not-sm:w-[90vw];
+  height: 50px;
+
+  background-color: #F1F1F1;
+
+  border-radius: 10px;
+  padding: 10px;
+
+  border: 2px solid rgba(0,0,0,28%);
+  margin: 0 20px 20px;
+
+  display: flex;
+  flex-direction: column;
+  transition: 0.5s;
+}
+
+.buscar:hover {
+  transition: 0.5s;
+  transform: scale(1.05);
+}
+
+.plugin {
+  height: 180px;
+
+  @apply w-[60vw] not-sm:w-[90vw] not-sm:flex-col;
+
+  @apply flex not-sm:flex-col justify-between items-center;
+
+  @apply h-[180px] not-sm:h-[270px];
+
+  padding: 20px;
+
+  margin: 10px;
+
+  gap: 10px;
+
+  @apply bg-gray-200 dark:bg-gray-800 rounded-2xl border-2 border-black dark:border-gray-200;
+
+}
+
+.plugin:hover {
+  transition: 0.5s;
+  transform: scale(1.05);
+}

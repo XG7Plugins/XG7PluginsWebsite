@@ -15,3 +15,13 @@ export type Key = {
 
 
 }
+
+export type Purshases = {
+  id: number
+
+  date: Date
+  price: number
+
+  items: Array<{name: string, price: number}>
+
+}
