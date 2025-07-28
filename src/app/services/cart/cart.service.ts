@@ -3,6 +3,8 @@ import {Coupon, PluginItem} from '../../../assets/types/cart';
 import {PluginService} from '../plugin/plugin.service';
 import {HttpClient} from '@angular/common/http';
 import {NotificationService} from '../notification/notification.service';
+import {UserService} from '../user/user.service';
+import {hasRole, Role} from '../../../assets/types/user';
 
 @Injectable({
   providedIn: 'root',
@@ -16,11 +18,22 @@ export class CartService {
   constructor(
     private pluginService: PluginService,
     private http: HttpClient,
+    private userService: UserService,
     private notificationService: NotificationService
   ) {
     const cartString = localStorage.getItem('cart');
 
     this.cart = cartString == null ? [] : JSON.parse(cartString);
+
+    if (userService.user !== null && hasRole(userService.user, Role.FRIEND)) {
+      this.coupon = {
+        code: userService.user.name,
+        discount: 10,
+        user: userService.user,
+        sells: 10
+      }
+    }
+
   }
 
   getCart() {
@@ -122,7 +135,9 @@ export class CartService {
 
     this.coupon = {
       code: name,
-      discount: 10
+      discount: 30,
+      user: null,
+      sells: 0
     }
 
   }

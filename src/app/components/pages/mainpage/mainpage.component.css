@@ -1,4 +1,6 @@
 
+@import "tailwindcss";
+
 main {
   width: 75vw;
   display: flex;
@@ -11,7 +13,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 60%;
+  width: 50%;
 }
 .banner_text {
   display: flex;
@@ -34,29 +36,47 @@ main {
 }
 .plugins header {
 
-  height: 50px;
   display: flex;
+
+  flex-direction: column;
 
   margin: 10px;
+
+
 }
 
-.plugins header > * {
+.filter {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  @apply not-sm:flex-col
+}
+
+.category {
+  width: 60%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 10px;
 
-  width: 200px;
-  height: 50px;
+  flex-wrap: wrap;
+}
 
-  margin: 5px;
-
+.selected {
   color: white;
 }
 
+.unselected {
+  @apply bg-gray-400 dark:bg-gray-800;
+}
+
 .plugins-container {
+
+  @apply grid grid-cols-2 xl:grid-cols-4 lg:grid-cols-3 not-sm:grid-cols-1 gap-6;
+
+  margin: 10px;
+
   width: 100%;
-  overflow: auto;
-  display: flex;
 }
 
 @media screen and (max-width: 40rem) {
@@ -73,22 +93,28 @@ main {
     height: auto;
     margin: 0;
   }
-  .plugins header {
-    flex-direction: column;
-    height: 100px;
-  }
   .plugins-container {
     flex-direction: column;
     align-items: center;
 
-    width: 270px;
+    width: 90%;
 
-    max-height: 500px;
+    height: 700px;
 
     overflow: auto;
   }
   .plugins {
     align-items: center;
+  }
+  .plugins header {
+    width: 100%;
+  }
+  .filter {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .filter > * {
+    width: 100%;
   }
 }
 
@@ -99,4 +125,54 @@ main {
   50% {
     transform: translateY(-10px); /* ou +10px para ir pra baixo primeiro */
   }
+}
+
+.plugins footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+}
+.plugins footer a {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 5px;
+  border-radius: 50%;
+  background-color: #94ceff;
+}
+
+.discord {
+  width: 100vw;
+  min-height: 350px;
+
+  background-image: linear-gradient(45deg, #2783e5, #0080ff);
+
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.discord * {
+  color: white;
+}
+.discord svg {
+  fill: white;
+}
+
+.why-xg7plugins {
+  width: 100%;
+  min-height: 500px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  margin: 70px 0 70px 0;
 }

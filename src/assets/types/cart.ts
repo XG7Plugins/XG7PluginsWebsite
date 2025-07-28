@@ -1,3 +1,5 @@
+import {User} from './user';
+
 export type PluginItem = {
   id: number;
   price: number;
@@ -9,4 +11,6 @@ export type PluginItem = {
 export type Coupon = {
   code: string;
   discount: number;
+  user: User | null;
+  sells: number;
 }

@@ -21,9 +21,29 @@ export class ImgComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (/^\d+$/.test(this.width)) {
+      this.width += 'px';
+    }
 
+    if (/^\d+$/.test(this.height)) {
+      this.height += 'px';
+    }
+  }
   onLoad() {
     this.isLoading = false; // Quando a imagem carregar, esconde o loader
+  }
+
+  parseStyle(style: string): { [key: string]: string } {
+    return style
+      .split(';')
+      .filter(s => s.trim())
+      .map(s => s.split(':'))
+      .reduce((acc, [key, value]) => {
+        if (key && value) {
+          acc[key.trim()] = value.trim();
+        }
+        return acc;
+      }, {} as any);
   }
 }

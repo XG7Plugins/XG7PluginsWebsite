@@ -1,37 +1,70 @@
 <app-plugin-modal #pluginModal></app-plugin-modal>
 
-<main>
-  <app-img class="not-sm:w-[83%] w-[65%] m-[35px] anm banner_title" alt="title" src="images/banner_title.png" width="230"/>
-  <h2 class="text-center text-2xl font-extralight" [innerHTML]="langService.getTranslation('landingpage', 'subtitle')"></h2>
+<main class="container">
+  <app-img class="not-sm:w-[83%] w-[65%] m-[35px] anm banner_title" alt="title" src="images/banner_title.png" width="60vw"/>
   <div class="banner">
     <app-img class="banner_img anm" alt="banner" src="images/banner_boy.png" width="230px"/>
     <div class="banner_text">
-      <h3 class="font-bold text-xl">{{ langService.getTranslation('landingpage', 'why_chose') }}</h3>
-      <p class="text-justify">
-        {{langService.getTranslation('landingpage', 'why_chose_desc')}}</p>
-      <button class="btn w-35 h-13 m-5 font-light text-center" (click)="scrollToPlugins($event)">
-        {{langService.getTranslation('landingpage', 'see_plugins')}}
-      </button>
+      <h2 class=" text-2xl font-extralight" [innerHTML]="langService.getTranslation('landingpage', 'subtitle')"></h2>
+      <div>
+        <strong>Seu servidor merece mais!</strong>
+        Use nossos plugins para ter mais <strong>desempenho</strong> e <strong>recursos de ótima qualidade</strong>.
+      </div>
+      <div class="flex">
+        <button class="btn w-60 h-13 m-5 font-light text-center" (click)="scrollToPlugins($event)">
+          {{langService.getTranslation('landingpage', 'see_plugins')}}
+        </button>
+        <button class="btn w-40 h-13 m-5 font-light text-center" (click)="scrollToPlugins($event)">
+          Baixe o core (XG7Plugins.jar)
+        </button>
+      </div>
+
     </div>
   </div>
-  <div class="plugins">
+  <div class="plugins" id="plugins">
     <header>
-      <p class="rounded" style="background: #1796ff">Plugins: </p>
-      <a class="btn rounded" href="">{{langService.getTranslation('landingpage', 'download_core')}}</a>
-    </header>
-    <div class="plugins-container" id="plugins" [ngClass]="{ 'no-plugins': loadedPlugins.length === 0 }">
+      <div class="rounded w-60 h-15 flex items-center justify-center mb-5 not-sm:w-full" style="background: #1796ff">
+        Plugins:
+      </div>
 
-      <div *ngFor="let plugin of loadedPlugins" class="card">
-        <img src="{{ plugin.iconUrl }}" alt="foto" width="1" height="1">
-        <h3 class="font-normal">{{ plugin.name }}</h3>
-        <p>{{ plugin.slogan }}</p>
+      <div class="filter">
+        <div class="category">
+          <button
+            class="btn rounded-full w-auto min-w-20 h-10 p-2"
+            *ngFor="let category of categoryList"
+            [ngClass]="categorySelected === category.key ? 'selected' : 'unselected'"
+            (click)="categorySelected = category.key"
+          >
+            {{ category.value }}
+          </button>
+        </div>
+        <div class="flex not-sm:items-center not-sm:justify-center">
+          <select class="btn text-center w-60 h-15 not-sm:w-full">
+
+            <option (click)="this.filter = 'NOTHING'">{{ langService.getTranslation("plugins", "filter") }}</option>
+            <option (click)="this.filter = 'RECENT'" >{{ langService.getTranslation("plugins", "most_recent") }}</option>
+            <option (click)="this.filter = 'DOWNLOADED'" >{{ langService.getTranslation("plugins", "most_downloaded") }}</option>
+
+          </select>
+        </div>
+      </div>
+    </header>
+    <div class="plugins-container" [ngClass]="{ 'no-plugins': loadedPlugins.length === 0 }">
+
+      <div *ngFor="let plugin of getPlugins()" class="card">
+        <img src="{{ plugin.iconUrl }}" alt="foto"  height="1">
+        <span class="flex gap-2 items-center">
+            <span class="text-2xl font-bold">{{ plugin.name }}</span>
+            <span class="opacity-50">v{{ plugin.version }}</span>
+          </span>
+        <p class="text-xl">{{ plugin.slogan }}</p>
         <p class="font-normal">{{ plugin.price == 0 ? "Grátis" : "R$" + (plugin.price / 100) }}</p>
-        <div class="flex w-full">
-          <button class="btn h-10 w-1/2 m-2 flex justify-center items-center" *ngIf="!this.userService.containsPlugin(plugin.id) && plugin.price != 0" (click)="cartService.addToCart({id: plugin.id,imageUrl: plugin.iconUrl,name: plugin.name, price: plugin.price, quantity: 1})">
+        <div class="flex w-full justify-center items-center">
+          <button class="btn h-10 w-1/2 m-2 flex justify-center items-center" *ngIf="!this.userService.containsPlugin(plugin.id) && plugin.price != 0" (click)="cartService.addToCart({id: plugin.id,price: plugin.price,name: plugin.name,imageUrl: plugin.iconUrl,quantity: 0})" >
             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M440-600v-120H320v-80h120v-120h80v120h120v80H520v120h-80ZM280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM40-800v-80h131l170 360h280l156-280h91L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68.5-39t-1.5-79l54-98-144-304H40Z"/></svg>
           </button>
-          <a href="{{plugin.downloadLink}}" target="_blank" class="btn w-1/2 h-10 m-2 flex items-center justify-center" *ngIf="this.userService.containsPlugin(plugin.id) || plugin.price == 0" ><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/></svg></a>
-          <button (click)="pluginModal.openModal(plugin.id)" class="btn w-32 h-10 m-2" >{{ langService.getTranslation("landingpage", "see_more") }}</button>
+          <a href="{{plugin.downloadLink}}" target="_blank" class="btn w-32 h-10 m-2 flex items-center justify-center" *ngIf="this.userService.containsPlugin(plugin.id) || plugin.price == 0" >{{ langService.getTranslation("plugins", "download") }}</a>
+          <button (click)="pluginModal.openModal(plugin.id)" class="btn w-32 h-10 m-2" >{{ langService.getTranslation("plugins", "see_more") }}</button>
         </div>
 
       </div>
@@ -39,6 +72,59 @@
       <div *ngIf="loadingPlugins"  class="spinner"></div>
       <div *ngIf="!loadingPlugins && loadedPlugins.length === 0">No plugins found</div>
     </div>
-    <button routerLink="plugins" class="btn w-32 h-12 self-start m-3 not-sm:self-center">{{langService.getTranslation('landingpage', 'see_more')}}</button>
+    <footer class="self-end not-sm:self-center">
+      <button class="btn w-8 h-8 m-1 rounded-full" (click)="changePlugins(currentPage -1)" *ngIf="currentPage -1 > 0">{{ currentPage - 1 }}</button>
+      <button class="btn w-8 h-8 m-1 rounded-full" (click)="changePlugins(currentPage)" style="background: blue">{{ currentPage }}</button>
+      <button class="btn w-8 h-8 m-1 rounded-full" (click)="changePlugins(currentPage +1)" *ngIf="currentPage + 1 <= maxPages">{{ currentPage + 1 }}</button>
+      <p>..</p>
+      <button class="btn w-8 h-8 m-1 rounded-full" (click)="changePlugins(maxPages)" href="">{{ maxPages }}</button>
+      <button class="btn w-8 h-8 m-1 rounded-full" (click)="changePlugins(currentPage -1 )"><</button>
+      <button class="btn w-8 h-8 m-1 rounded-full" (click)="changePlugins(currentPage +1 )">></button>
+    </footer>
+  </div>
+  <div #observedElement class="opacity-0 why-xg7plugins">
+
+    <span class="anm font-bold text-5xl m-3 mb-20 text-center" [innerHTML]="getSafeHtml('why_chose')"></span>
+
+    <div class="anm w-[80%] sm:w-full grid not-sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="min-h-[500px] rounded-2xl p-8 flex flex-col items-center bg-gray-200 dark:bg-gray-800 shadow shadow-black">
+        <svg xmlns="http://www.w3.org/2000/svg" height="90px" viewBox="0 -960 960 960" width="90px" fill="#e3e3e3"><path d="M480-120q-75 0-140.5-28.5t-114-77q-48.5-48.5-77-114T120-480q0-75 28.5-140.5t77-114q48.5-48.5 114-77T480-840q82 0 155.5 35T760-706v-94h80v240H600v-80h110q-41-56-101-88t-129-32q-117 0-198.5 81.5T200-480q0 117 81.5 198.5T480-200q105 0 183.5-68T756-440h82q-15 137-117.5 228.5T480-120Zm112-192L440-464v-216h80v184l128 128-56 56Z"/></svg>
+        <h2 class="text-center">Atualizações frequentes</h2>
+        <p class="text-justify">A XG7Plugins sempre está a procura de melhorias de desempenho, segurança e adição de novos recursos para seu servidor, trazendo atualizações novas rapidamente. Além disso, nós observamos seus feedbacks, em busca de atender suas expectativas. </p>
+      </div>
+      <div class="anm min-h-[500px] rounded-2xl p-8 flex flex-col items-center bg-gray-200 dark:bg-gray-800 shadow shadow-black">
+        <svg xmlns="http://www.w3.org/2000/svg" height="90px" viewBox="0 -960 960 960" width="90px" fill="#e3e3e3"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h240v80H200v560h560v-240h80v240q0 33-23.5 56.5T760-120H200Zm440-400v-120H520v-80h120v-120h80v120h120v80H720v120h-80Z"/></svg>
+        <h2 class="text-center">Compatibilidade</h2>
+        <p class="text-justify">Nossos plugins oferecem compatibilidade para múltiplas versões do Minecraft e com softwares de servidor, como o BungeeCord, Velocity, Paper e Spigot. As versões compatíveis começam da versão 1.8 até a mais recente. Procuramos sempre manter nossos produtos atualizados e inovando com os recursos novos de cada versão.</p>
+      </div>
+      <div class="anm min-h-[500px] rounded-2xl p-8 flex flex-col items-center bg-gray-200 dark:bg-gray-800 shadow shadow-black">
+        <svg xmlns="http://www.w3.org/2000/svg" height="90px" viewBox="0 -960 960 960" width="90px" fill="#e3e3e3"><path d="m408-432-42-42q8-11 11-22.5t3-23.5q0-12-3-23.5T366-565l42-43q16 19 24 42t8 46q0 23-8 45.5T408-432Zm85 86-43-43q25-28 37.5-62t12.5-69q0-35-12.5-68.5T450-650l43-43q34 37 50.5 81.5T560-520q0 47-16.5 92T493-346ZM200-480q-33 0-56.5-23.5T120-560q0-33 23.5-56.5T200-640q33 0 56.5 23.5T280-560q0 33-23.5 56.5T200-480ZM40-320v-23q0-24 13-44t36-30q26-11 53.5-17t57.5-6q30 0 57.5 6t53.5 17q23 10 36 30t13 44v23H40Zm720-160q-33 0-56.5-23.5T680-560q0-33 23.5-56.5T760-640q33 0 56.5 23.5T840-560q0 33-23.5 56.5T760-480ZM600-320v-23q0-24 13-44t36-30q26-11 53.5-17t57.5-6q30 0 57.5 6t53.5 17q23 10 36 30t13 44v23H600Z"/></svg>
+        <h2 class="text-center">Atendimento</h2>
+        <p class="text-justify">
+          Valorizamos cada usuário e priorizamos uma experiência excepcional. Por isso, oferecemos um suporte rápido, eficiente e sempre pronto para te ajudar no que for preciso.
+        </p>      </div>
+      <div class="anm min-h-[500px] rounded-2xl p-8 flex flex-col items-center bg-gray-200 dark:bg-gray-800 shadow shadow-black">
+        <svg xmlns="http://www.w3.org/2000/svg" height="90px" viewBox="0 -960 960 960" width="90px" fill="#e3e3e3"><path d="M320-240v-80h-80v-80h80v-80h80v80h80v80h-80v80h-80Zm40 160q-116 0-198-82T80-360q0-116 82-198t198-82q116 0 198 82t82 198q0 116-82 198T360-80Zm0-80q83 0 141.5-58.5T560-360q0-83-58.5-141.5T360-560q-83 0-141.5 58.5T160-360q0 83 58.5 141.5T360-160Zm318-172q2-6 2-13v-15q0-133-93.5-226.5T360-680h-15q-7 0-13 2 26-88 98.5-145T600-880q116 0 198 82t82 198q0 97-57 169.5T678-332Z"/></svg>
+        <h2 class="text-center">Inovação</h2>
+        <p class="text-justify">
+          Estamos sempre à frente, desenvolvendo recursos inéditos que elevam a experiência dos servidores. Um exemplo disso é o nosso sistema de linguagem integrado, pensado para atender públicos diversos com praticidade e personalização.
+        </p>
+      </div>
+    </div>
+
+  </div>
+  <div class="discord rounded-t-2xl p-8 md:p-12 flex flex-col md:flex-row">
+    <div class="w-[90%] sm:w-1/2">
+      <p class="text-4xl md:text-6xl font-extrabold leading-tight">Junte-se à nossa comunidade no Discord!</p>
+      <p class="mt-4 text-xl text-gray-300">
+        Receba atualizações, anúncios e suporte direto dos desenvolvedores dos plugins!
+      </p>
+    </div>
+    <div>
+      <a href="https://discord.gg/2wzmnyu7S3" target="_blank" class="flex items-center gap-2 bg-[#5865F2] hover:bg-[#4752c4] transition-colors text-white font-semibold px-6 py-3 rounded-xl text-lg shadow-md">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#000000" width="65px" height="65px" viewBox="0 0 24 24" role="img"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+        Entre agora!
+      </a>
+    </div>
   </div>
 </main>

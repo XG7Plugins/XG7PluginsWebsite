@@ -1,4 +1,4 @@
-import {PurchasedPlugin, Purshases} from './keys';
+import {PurchasedPlugin, Purchases} from './keys';
 
 export interface User {
   name: string;
@@ -13,14 +13,17 @@ export interface User {
   balance: number;
 
   purchasedPlugins: Array<PurchasedPlugin>;
-  purchases: Array<Purshases>;
+  purchases: Array<Purchases>;
+}
+
+export function hasRole(user: User, role: Role): boolean {
+  return user.roles.includes(Role.ADMIN) || user.roles.includes(role);
 }
 
 export enum Role {
-  CEO,
   ADMIN,
-  MODERATOR,
-  HELPER,
+  STAFF,
+  SUPPORTER,
   FRIEND,
   USER,
 }
@@ -32,14 +35,6 @@ export enum Permission {
   USER_DELETE,
   USERS_VIEW,
   USERS_EDIT,
-
-  FORUM_EDIT,
-  FORUM_DELETE,
-  FORUM_POST,
-
-  FORUM_MOD_BAN,
-  FORUM_MOD_DELETE,
-  FORUM_MOD_EDIT,
 
   PLUGINS_CREATE,
   PLUGINS_DELETE,

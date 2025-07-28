@@ -17,8 +17,14 @@ export type PrePlugin = {
 
 }
 
-type Category = "ADMIN" | "UTILS" | "DEPENDENCIES" | "FUN"
-
+export enum Category {
+  ALL = "Todos",
+  ADMIN = "Administração",
+  UTILS = "Utilidades",
+  FUN = "Diversão",
+  MANAGEMENT = "Gestão",
+  DEPENDENCY = "Dependencia"
+}
 export type Plugin = {
 
   id: number

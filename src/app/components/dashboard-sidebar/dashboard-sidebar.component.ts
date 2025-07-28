@@ -5,7 +5,7 @@ import {LangService} from '../../services/lang/lang.service';
 import {UserService} from '../../services/user/user.service';
 import {RouterLink} from '@angular/router';
 import {ModalComponent} from '../utils/modal/modal.component';
-import {Role} from '../../../assets/types/user';
+import {hasRole, Role} from '../../../assets/types/user';
 
 @Component({
   selector: 'app-dashboard-sidebar',
@@ -50,4 +50,6 @@ export class DashboardSidebarComponent {
       this.isMenuOpen = false
     }
   }
+
+  protected readonly hasRole = hasRole;
 }

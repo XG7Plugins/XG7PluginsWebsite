@@ -17,7 +17,7 @@ main {
 }
 
 .purchases {
-  @apply w-full not-sm:flex-col not-sm:w-auto;
+  @apply w-[60vw] not-sm:w-[90vw] not-sm:flex-col;
 
   @apply flex flex-col justify-between items-center;
 

@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {PrePlugin, Plugin} from '../../../assets/types/plugin';
-import {catchError, map, Observable, of, throwError} from 'rxjs';
+import {Category, Plugin, PrePlugin} from '../../../assets/types/plugin';
+import {Observable, of} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +19,7 @@ export class PluginService {
       downloadLink: '',
       downloads: 10,
       updated: new Date(),
-      categories: ["FUN","UTILS"]
+      categories: [Category.ADMIN, Category.UTILS, Category.MANAGEMENT],
     },
     {
       id: 2,
@@ -29,10 +29,20 @@ export class PluginService {
       iconUrl: 'https://www.spigotmc.org/data/resource_icons/112/112605.jpg?1694471111',
       price: 1499,
       downloadLink: '',
-      downloads: 10,
-      updated: new Date(),
-      categories: ["FUN","UTILS"]
-    },
+      downloads: 100,
+      updated: new Date(100),
+      categories: [Category.FUN,Category.UTILS]
+    }
+
+
+
+
+
+
+
+
+
+
   ];
   loadedPlugins: Plugin[] = [
     {
@@ -50,7 +60,7 @@ export class PluginService {
       updated: new Date(),
       commands: '/lobby',
       permissions: 'xg7lobby.permission',
-      categories: ["FUN", "UTILS"],
+      categories: [Category.ADMIN,Category.UTILS],
       changelog: [
         {
           title: 'Novo plugin',
@@ -90,7 +100,7 @@ export class PluginService {
       updated: new Date(),
       commands: '/rk',
       permissions: 'xg7rk.permission',
-      categories: ["FUN", "UTILS"],
+      categories: [Category.FUN,Category.UTILS],
       changelog: [
         {
           title: 'Novo plugin',

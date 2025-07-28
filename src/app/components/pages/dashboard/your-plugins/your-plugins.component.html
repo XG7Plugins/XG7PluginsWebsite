@@ -11,9 +11,9 @@
     <div class="plugin" *ngFor="let pp of getPlugins()">
 
       <div class="flex items-center justify-center">
-        <app-img classes="w-40 not-sm:w-30" src="{{pp.plugin.iconUrl}}"  width="1" />
+        <app-img classes="w-40 not-sm:w-30" src="{{pp.plugin.iconUrl}}"  />
       </div>
-      <div class="w-1/2 flex flex-col justify-around not-sm:items-center not-sm:w-2/3">
+      <div class="w-full flex flex-col justify-around not-sm:items-center not-sm:w-2/3">
         <h2>{{pp.plugin.name}}</h2>
         <p>Licenças adquiridas: {{pp.keys.length}} <br></p>
         <p class="not-sm:hidden">Última atualização: {{pp.plugin.updated}}</p>

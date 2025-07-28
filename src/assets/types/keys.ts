@@ -16,7 +16,7 @@ export type Key = {
 
 }
 
-export type Purshases = {
+export type Purchases = {
   id: number
 
   date: Date

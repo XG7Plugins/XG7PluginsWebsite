@@ -1,0 +1,50 @@
+<main>
+
+  <div class="w-full m-8 mt-3 not-sm:pl-2 not-sm:mt-20 flex justify-between items-center">
+    <h1 class="">Plugins: </h1>
+    <button class="btn w-60 h-15 flex items-center justify-center">
+      <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
+      Adicionar plugin
+    </button>
+
+  </div>
+  <input type="text" class="buscar" placeholder="Buscar plugins" [(ngModel)]="pesquisa" >
+
+  <div class="plugins">
+
+    <div class="plugin" *ngFor="let plugin of getPlugins()">
+
+      <div class="w-full flex justify-between">
+        <div class="pl-img">
+          <img src="{{ plugin.iconUrl }}" alt="foto" width="130px">
+        </div>
+
+        <div class="p-4 w-1/2 flex flex-col gap-2">
+          <span class="flex gap-2 items-center">
+            <span class="text-3xl font-bold">{{ plugin.name }}</span>
+            <span class="opacity-50">v{{ plugin.version }}</span>
+          </span>
+          <p>{{ plugin.slogan }}</p>
+          <p>Criado: {{ plugin.created }}</p>
+        </div>
+
+        <div class="but w-1/3">
+
+        </div>
+      </div>
+      <hr class="mt-3 mb-3">
+      <div class="w-full flex justify-between">
+        <p class="text-2xl"> {{ plugin.price === 0 ? "Grátis" : "R$" + (plugin.price / 100).toFixed(2) }}</p>
+        <p class="text-2xl opacity-50">Downloads: {{ plugin.downloads }}</p>
+      </div>
+
+
+
+    </div>
+
+
+  </div>
+
+</main>
+
+<app-dashboard-footer></app-dashboard-footer>
