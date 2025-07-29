@@ -6,7 +6,7 @@ import {ImgComponent} from '../../utils/img/img.component';
 import {PluginService} from '../../../services/plugin/plugin.service';
 import {Category, PrePlugin} from '../../../../assets/types/plugin';
 import {UserService} from '../../../services/user/user.service';
-import {PluginModalComponent} from '../../plugin-modal/plugin-modal.component';
+import {PluginModalComponent} from '../../plugins/plugin-modal/plugin-modal.component';
 import {CartService} from '../../../services/cart/cart.service';
 import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
 

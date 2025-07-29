@@ -43,7 +43,7 @@ main {
 .plugins {
   width: 100%;
 
-  @apply grid grid-cols-2 not-md:grid-cols-1;
+  @apply grid lg:grid-cols-2 grid-cols-1;
 
   gap: 10px;
 
@@ -73,5 +73,23 @@ main {
   display: flex;
   flex-direction: column;
 
+}
+
+.edit-btn {
+  @apply bg-cyan-400 dark:bg-gray-700 rounded-full w-10 h-10;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.5s;
+
+}
+
+.edit-btn:hover {
+  transition: 0.5s;
+  transform: scale(1.1);
+
+  @apply bg-purple-400 dark:bg-cyan-400;
 }
 

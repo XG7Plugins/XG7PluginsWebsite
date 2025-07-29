@@ -1,12 +1,12 @@
 import {Component, HostListener, OnInit} from '@angular/core';
-import {ModalComponent} from '../utils/modal/modal.component';
+import {ModalComponent} from '../../utils/modal/modal.component';
 import {NgClass, NgForOf, NgIf} from '@angular/common';
-import {LangService} from '../../services/lang/lang.service';
-import {UserService} from '../../services/user/user.service';
-import {PluginService} from '../../services/plugin/plugin.service';
-import {Plugin} from '../../../assets/types/plugin';
-import {MarkdownComponent} from '../utils/markdown/markdown.component';
-import {CartService} from '../../services/cart/cart.service';
+import {LangService} from '../../../services/lang/lang.service';
+import {UserService} from '../../../services/user/user.service';
+import {PluginService} from '../../../services/plugin/plugin.service';
+import {Plugin} from '../../../../assets/types/plugin';
+import {MarkdownComponent} from '../../utils/markdown/markdown.component';
+import {CartService} from '../../../services/cart/cart.service';
 
 @Component({
   selector: 'app-plugin-modal',

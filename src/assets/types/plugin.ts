@@ -37,6 +37,7 @@ export type Plugin = {
 
   price: number;
   downloadLink: string;
+  docLink: string;
   githubLink: string;
   downloads: number;
 
@@ -49,6 +50,21 @@ export type Plugin = {
   categories: Array<Category>;
   changelog: Array<Update>;
 
+}
+
+export type CreatingPlugin = {
+  name: string | undefined;
+  version: string | undefined;
+  slogan: string | undefined;
+  description: string | undefined;
+  iconFile: File | undefined;
+  price: number | undefined;
+  downloadFile: File | undefined;
+  githubLink: string | undefined;
+  docLink: string | undefined;
+  commands: string | undefined;
+  permissions: string | undefined;
+  categories: Array<Category>;
 }
 
 export type Update = {

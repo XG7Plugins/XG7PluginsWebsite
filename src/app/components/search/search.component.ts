@@ -7,7 +7,7 @@ import {UserService} from '../../services/user/user.service';
 import {PluginService} from '../../services/plugin/plugin.service';
 import {ImgComponent} from '../utils/img/img.component';
 import {FormsModule} from '@angular/forms';
-import {PluginModalComponent} from '../plugin-modal/plugin-modal.component';
+import {PluginModalComponent} from '../plugins/plugin-modal/plugin-modal.component';
 
 @Component({
   selector: 'app-search',
