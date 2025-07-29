@@ -54,3 +54,11 @@ input {
 input:focus {
   border: 2px solid black;
 }
+
+.selected {
+  color: white;
+}
+
+.unselected {
+  @apply bg-gray-400 dark:bg-gray-700;
+}

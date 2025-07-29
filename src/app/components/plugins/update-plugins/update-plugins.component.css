@@ -2,7 +2,7 @@
 
 .modal {
   width: 800px;
-  min-height: 90vh;
+  min-height: 70vh;
 
   @apply not-sm:w-[100vw];
 
@@ -22,7 +22,7 @@
 
 .form {
   width: 100%;
-  max-height: 75vh;
+  max-height: 60vh;
 
   gap: 20px;
 

@@ -1,0 +1,70 @@
+<app-modal *ngIf="isModalOpen && plugin !== undefined" (close)="isModalOpen = false">
+
+  <button class="w-10 h-10 fixed top-5 right-5" (click)="isModalOpen = false">
+    <svg fill="#000000" height="30px" width="30px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 460.775 460.775" xml:space="preserve">
+<path d="M285.08,230.397L456.218,59.27c6.076-6.077,6.076-15.911,0-21.986L423.511,4.565c-2.913-2.911-6.866-4.55-10.992-4.55  c-4.127,0-8.08,1.639-10.993,4.55l-171.138,171.14L59.25,4.565c-2.913-2.911-6.866-4.55-10.993-4.55  c-4.126,0-8.08,1.639-10.992,4.55L4.558,37.284c-6.077,6.075-6.077,15.909,0,21.986l171.138,171.128L4.575,401.505  c-6.074,6.077-6.074,15.911,0,21.986l32.709,32.719c2.911,2.911,6.865,4.55,10.992,4.55c4.127,0,8.08-1.639,10.994-4.55  l171.117-171.12l171.118,171.12c2.913,2.911,6.866,4.55,10.993,4.55c4.128,0,8.081-1.639,10.992-4.55l32.709-32.719  c6.074-6.075,6.074-15.909,0-21.986L285.08,230.397z"/>
+</svg>
+  </button>
+
+  <div class="modal">
+
+    <h1 class="text-center w-full border-b">Atualizar Plugin:</h1>
+    <div class="form">
+      <div class="input col-span-5">
+        <label for="title">Titulo da atualização:</label>
+        <input type="text" id="title" placeholder="Título da atualização">
+      </div>
+      <div class="input col-span-3">
+        <label for="version">Versão:</label>
+        <input type="text" id="version" placeholder="Nova versão" value="{{plugin?.version}}">
+      </div>
+
+      <div class="col-span-full flex items-end">
+        <div class="relative bg-blue-600 p-2 rounded-2xl w-full">
+          <input
+            id="file-upload"
+            type="file"
+            class="peer absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+            [ngModel]="this.updatingPlugin.downloadFile"
+          >
+
+          <label
+            for="file-upload"
+            class="w-full h-10 flex items-center justify-center gap-2"
+          >
+            <span class="text-center">Nova jar</span>
+
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1M12 12V4m0 0L8 8m4-4l4 4" />
+            </svg>
+          </label>
+        </div>
+      </div>
+
+      <div class="col-span-full">
+        <label for="description">Descrição (Markdown):</label>
+
+        <textarea id="description"
+                  rows="5"
+                  [(ngModel)]="this.updatingPlugin.description"
+                  value="{{updatingPlugin.description}}"
+                  placeholder="Digite a descrição em Markdown"
+                  class="w-full p-2 border rounded"></textarea>
+      </div>
+
+      <div class="col-span-full mt-4">
+        <label>Prévia:</label>
+        <div class="border p-4 rounded max-h-70 overflow-y-scroll">
+          <app-markdown text="{{this.updatingPlugin.description}}"></app-markdown>
+        </div>
+      </div>
+
+    </div>
+    <div class="flex items-center border-t">
+      <button class="btn w-full h-15">Postar atualização</button>
+    </div>
+
+
+  </div>
+</app-modal>

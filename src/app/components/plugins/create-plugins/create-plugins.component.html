@@ -79,21 +79,21 @@
         </div>
         <div class="input col-span-3">
           <label for="price">Preço (em R$):</label>
-          <input type="number" id="price" placeholder="Digite o preço do plugin">
+          <input (change)="priceChange($event)" type="number" id="price" placeholder="Digite o preço do plugin">
         </div>
 
       </div>
       <div class="col-span-full">
         <label>Categorias:</label>
 
-        <div class="category">
+        <div class="flex flex-wrap gap-3">
           <button
             class="btn rounded-full w-auto min-w-20 h-10 p-2"
             *ngFor="let category of categoryList"
-            [ngClass]="categorySelected === category.key ? 'selected' : 'unselected'"
-            (click)="categorySelected = category.key"
+            [ngClass]="isCategorySelected(category.value) ? 'selected' : 'unselected'"
+            (click)="toggleCategory(category.value)"
           >
-            {{ category.value }}
+            {{ category.key }}
           </button>
         </div>
 

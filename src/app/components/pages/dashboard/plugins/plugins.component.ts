@@ -6,6 +6,8 @@ import {NgForOf} from '@angular/common';
 import {ImgComponent} from '../../../utils/img/img.component';
 import {PluginModalComponent} from '../../../plugins/plugin-modal/plugin-modal.component';
 import {CreatePluginsComponent} from '../../../plugins/create-plugins/create-plugins.component';
+import {EditPluginsComponent} from '../../../plugins/edit-plugins/edit-plugins.component';
+import {UpdatePluginsComponent} from '../../../plugins/update-plugins/update-plugins.component';
 
 @Component({
   selector: 'app-plugins',
@@ -14,21 +16,23 @@ import {CreatePluginsComponent} from '../../../plugins/create-plugins/create-plu
     DashboardFooterComponent,
     NgForOf,
     PluginModalComponent,
-    CreatePluginsComponent
+    CreatePluginsComponent,
+    EditPluginsComponent,
+    UpdatePluginsComponent
   ],
   templateUrl: './plugins.component.html',
   styleUrl: './plugins.component.css'
 })
 export class PluginsComponent {
 
+  pesquisa: string = '';
+
   constructor(
     protected pluginService: PluginService,
   ) { }
 
-  protected pesquisa = '';
-
   getPlugins() {
-    return this.pluginService.getPlugins();
+    return this.pluginService.getPlugins().filter(plugin => plugin.name.toLowerCase().includes(this.pesquisa.toLowerCase()));
   }
 
 }

@@ -66,6 +66,28 @@ export type CreatingPlugin = {
   permissions: string | undefined;
   categories: Array<Category>;
 }
+export type EditingPlugin = {
+  name: string | undefined;
+  slogan: string | undefined;
+  description: string | undefined;
+  iconFile: File | undefined;
+  price: number | undefined;
+  githubLink: string | undefined;
+  docLink: string | undefined;
+  commands: string | undefined;
+  permissions: string | undefined;
+  categories: Array<Category>;
+}
+
+export type PostUpdate = {
+
+  title: string | undefined;
+  version: string | undefined;
+  description: string | undefined;
+
+  downloadFile: File | undefined;
+
+}
 
 export type Update = {
 

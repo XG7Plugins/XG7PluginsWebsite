@@ -1,4 +1,4 @@
-<app-modal *ngIf="isModalOpen" (close)="isModalOpen = false">
+<app-modal *ngIf="isModalOpen && editingPlugin !== undefined" (close)="isModalOpen = false">
 
   <button class="w-10 h-10 fixed top-5 right-5" (click)="isModalOpen = false">
     <svg fill="#000000" height="30px" width="30px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 460.775 460.775" xml:space="preserve">
@@ -8,7 +8,7 @@
 
   <div class="modal">
 
-    <h1 class="text-center w-full border-b">Criar Plugin:</h1>
+    <h1 class="text-center w-full border-b">Editar Plugin:</h1>
     <div class="form">
       <div class="flex flex-col col-span-3 gap-3 not-sm:col-span-full">
         <img class="rounded-2xl" src="{{this.previewUrl}}" alt="foto"  height="1">
@@ -35,51 +35,40 @@
       </div>
       <div class="col-span-5 not-sm:col-span-full gap-3 grid grid-cols-6">
 
-        <div class="input col-span-4">
+        <div class="input col-span-full">
           <label for="nome">Nome:</label>
-          <input type="text" id="nome" placeholder="Nome do plugin">
-        </div>
-        <div class="input col-span-2">
-          <label for="version">Versão:</label>
-          <input type="text" id="version" placeholder="Versão do pl">
+          <input type="text" id="nome" placeholder="Nome do plugin" value="{{editingPlugin.name}}">
         </div>
         <div class="input col-span-full">
           <label for="slogan">Slogan:</label>
-          <input type="text" id="slogan" placeholder="Slogan do plugin">
+          <input type="text" id="slogan" placeholder="Slogan do plugin" value="{{editingPlugin.slogan}}">
         </div>
         <div class="input col-span-3">
           <label for="github">Link do github:</label>
-          <input type="text" id="github" placeholder="Link do github do plugin (deixe vazio se for privado)">
+          <input type="text" id="github" placeholder="Link do github do plugin (deixe vazio se for privado)" value="{{editingPlugin.githubLink}}">
         </div>
         <div class="input col-span-3">
           <label for="docs">Docs:</label>
-          <input type="text" id="docs" placeholder="Envie o link das docs, se houver">
+          <input type="text" id="docs" placeholder="Envie o link das docs, se houver" value="{{editingPlugin.docLink}}">
         </div>
-        <div class="col-span-3 flex items-end">
-          <div class="relative bg-blue-600 p-2 rounded-2xl w-full">
-            <input
-              id="file-upload"
-              type="file"
-              class="peer absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
-              [ngModel]="this.creatingPlugin.downloadFile"
-            >
-
-            <label
-              for="file-upload"
-              class="w-full h-10 flex items-center justify-center gap-2"
-            >
-              <span class="text-center">Jar do plugin</span>
-
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1M12 12V4m0 0L8 8m4-4l4 4" />
-              </svg>
-            </label>
-          </div>
-        </div>
-        <div class="input col-span-3">
+        <div class="input col-span-full">
           <label for="price">Preço (em R$):</label>
-          <input type="number" id="price" placeholder="Digite o preço do plugin">
+          <input (change)="priceChange($event)" type="number" id="price" placeholder="Digite o preço do plugin">
+        </div>
+
+      </div>
+      <div class="col-span-full">
+        <label>Categorias:</label>
+
+        <div class="flex flex-wrap gap-3">
+          <button
+            class="btn rounded-full w-auto min-w-20 h-10 p-2"
+            *ngFor="let category of categoryList"
+            [ngClass]="isCategorySelected(category.value) ? 'selected' : 'unselected'"
+            (click)="toggleCategory(category.value)"
+          >
+            {{ category.key }}
+          </button>
         </div>
 
       </div>
@@ -88,8 +77,9 @@
 
         <textarea id="description"
                   rows="1"
-                  [(ngModel)]="this.creatingPlugin.commands"
+                  [(ngModel)]="this.editingPlugin.commands"
                   placeholder="Digite os comandos, separe por '; '"
+                  value="{{editingPlugin.commands}}"
                   class="w-full p-2 border rounded"></textarea>
       </div>
       <div class="col-span-full">
@@ -97,7 +87,8 @@
 
         <textarea id="description"
                   rows="1"
-                  [(ngModel)]="this.creatingPlugin.permissions"
+                  [(ngModel)]="this.editingPlugin.permissions"
+                  value="{{editingPlugin.permissions}}"
                   placeholder="Digite as permissões, separe por '; '"
                   class="w-full p-2 border rounded"></textarea>
       </div>
@@ -107,7 +98,8 @@
 
         <textarea id="description"
                   rows="5"
-                  [(ngModel)]="this.creatingPlugin.description"
+                  [(ngModel)]="this.editingPlugin.description"
+                  value="{{editingPlugin.description}}"
                   placeholder="Digite a descrição em Markdown"
                   class="w-full p-2 border rounded"></textarea>
       </div>
@@ -115,16 +107,15 @@
       <div class="col-span-full mt-4">
         <label>Prévia:</label>
         <div class="border p-4 rounded max-h-70 overflow-y-scroll">
-          <app-markdown text="{{this.creatingPlugin.description}}"></app-markdown>
+          <app-markdown text="{{this.editingPlugin.description}}"></app-markdown>
         </div>
       </div>
 
     </div>
     <div class="flex items-center border-t">
-      <button class="btn w-full h-15">Criar</button>
+      <button class="btn w-full h-15">Editar</button>
     </div>
 
 
   </div>
 </app-modal>
-
