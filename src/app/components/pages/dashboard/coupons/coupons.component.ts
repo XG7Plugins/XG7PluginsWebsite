@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {CartService} from '../../../../services/cart/cart.service';
 import {Coupon} from '../../../../../assets/types/cart';
+import { NgForOf } from '@angular/common';
 
 @Component({
   selector: 'app-coupons',
   imports: [
-    FormsModule
+    FormsModule,
+    NgForOf
   ],
   templateUrl: './coupons.component.html',
   styleUrl: './coupons.component.css'

@@ -8,7 +8,6 @@ export interface User {
   permissions: Array<Permission>;
 
   profileIcon: string;
-  about: string;
 
   balance: number;
 

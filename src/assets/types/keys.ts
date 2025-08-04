@@ -1,9 +1,10 @@
 import {PrePlugin} from './plugin';
 
 export type PurchasedPlugin = {
-  plugin: PrePlugin
 
-  keys: Array<Key>
+  plugin: PrePlugin;
+
+  keys: Array<Key>;
 }
 
 export type Key = {

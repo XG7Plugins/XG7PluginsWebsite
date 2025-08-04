@@ -123,6 +123,10 @@ export class PluginService {
     return this.loadedPrePlugins
     // return this.http.get('https://api.example.com/plugins');
   }
+  getPrePlugin(id: number): PrePlugin | null {
+    return this.loadedPrePlugins.find(plugin => plugin.id === id) || null;
+    // return this.http.get(`https://api.example.com/plugins/${id}`);
+  }
   getPlugin(id: number) {
     // return this.http.get(`https://api.example.com/plugins/${id}`);
     return of(this.loadedPlugins.find(plugin => plugin.id === id) || null);
