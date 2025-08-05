@@ -22,6 +22,7 @@
     "@ng-icons/heroicons": "^30.3.0",
     "@tailwindcss/postcss": "^4.1.5",
     "marked": "^15.0.7",
+    "ngx-cookie-service": "^19.0.0",
     "ngx-markdown": "^19.1.0",
     "prismjs": "^1.28.0",
     "rxjs": "~7.8.0",

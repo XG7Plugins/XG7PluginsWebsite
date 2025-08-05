@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Permission, Role, User } from '../../../assets/types/user';
 import { PluginService } from '../plugin/plugin.service';
 import { PurchasedPlugin, Purchases } from '../../../assets/types/keys';
+import { CookieService } from 'ngx-cookie-service';
+import { RedirectCommand, Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -14,13 +16,13 @@ export class UserService {
   constructor(
     private http: HttpClient,
     private pluginService: PluginService,
+    private router: Router
   ) { }
 
   loadUser() {
-    let token = localStorage.getItem("token");
 
-    if (token) {
-      this.http.get<any>("http://localhost:8080/auth/token").subscribe(json => {
+    this.http.get<any>("http://localhost:8080/auth/token", { withCredentials: true }).subscribe({
+      next: (json) => {
         const { icon64, keys, ...resto } = json;
 
         const purchasedPlugins: PurchasedPlugin[] = [];
@@ -52,13 +54,19 @@ export class UserService {
         }
 
         this.user = {
-          ...resto, 
+          ...resto,
           purchasedPlugins: purchasedPlugins,
           profileIcon: icon64 || 'https://crafatar.com/avatars/2ceb3b2e-78b6-4677-aea5-5c9915fcaeb7',
         } as User;
-      });
-    }
+      },
+      error: (error) => {
+        console.log("User not authenticated:", error);
+        this.user = null;
+      }
+
+    });
   }
+
 
   isValid() {
     return this.user != null;
@@ -83,5 +91,17 @@ export class UserService {
       return [];
     }
     return this.user.purchases;
+  }
+
+  logout() {
+    this.http.post("http://localhost:8080/auth/logout", { withCredentials: true }).subscribe({
+      next: () => {
+        this.user = null;
+        this.router.navigate(['/']);
+      },
+      error: (error) => {
+        console.error("Logout failed:", error);
+      }
+    });
   }
 }

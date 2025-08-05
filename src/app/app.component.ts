@@ -4,6 +4,7 @@ import {HeaderComponent} from './components/header/header.component';
 import {FooterComponent} from './components/footer/footer.component';
 import {NgIf} from '@angular/common';
 import {NotificationComponent} from './components/utils/notification/notification.component';
+import { UserService } from './services/user/user.service';
 
 
 
@@ -13,7 +14,7 @@ import {NotificationComponent} from './components/utils/notification/notificatio
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'XG7Plugins';
 
   disabledHeader = [
@@ -29,8 +30,18 @@ export class AppComponent {
   ];
 
   constructor(
-    private route: Router
+    private route: Router,
+    private userService: UserService
   ) {
+  }
+  ngOnInit(): void {
+    this.route.events.subscribe(() => {
+      console.log("Current URL:", this.route.url);
+
+      if (this.userService.user === null) {
+        this.userService.loadUser();
+      }
+    });
   }
 
   isDisabledHeader() {
