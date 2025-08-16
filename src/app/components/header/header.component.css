@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 header {
-  display: flex;
-  justify-content: space-between;
+  @apply grid grid-cols-8 gap-6 not-md:grid-cols-4;
+
   padding: 0 10px 0 10px;
   align-items: center;
   height: 80px;
@@ -32,11 +32,6 @@ header {
     width: 100vw;
 
   }
-}
-
-nav {
-  width: 30%;
-  justify-content: space-around;
 }
 
 .profile {

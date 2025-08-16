@@ -1,3 +1,4 @@
+
 <div class="background">
 
   <form action="">
@@ -10,26 +11,26 @@
       <label for="nome">
         {{langService.getTranslation("register", "username")}}
       </label>
-      <input type="text" id="nome" name="nome" placeholder='{{langService.getTranslation("register", "username-placeholder")}}' />
+      <input [(ngModel)]="preUser.username" type="text" id="nome" name="nome" placeholder='{{langService.getTranslation("register", "username-placeholder")}}' />
 
     </div>
     <div class="input">
       <label for="email">
         Email:
       </label>
-      <input type="email" id="email" name="email" placeholder='{{langService.getTranslation("register", "email-placeholder")}}' />
+      <input [(ngModel)]="preUser.email" type="email" id="email" name="email" placeholder='{{langService.getTranslation("register", "email-placeholder")}}' />
 
     </div>
     <div class="input">
       <label for="senha">
         {{langService.getTranslation("register", "password")}}
       </label>
-      <input type="password" id="senha" name="senha" placeholder='{{langService.getTranslation("register", "password-placeholder")}}' />
+      <input [(ngModel)]="preUser.password" type="password" id="senha" name="senha" placeholder='{{langService.getTranslation("register", "password-placeholder")}}' />
 
     </div>
 
     <div class="terms">
-      <input type="checkbox" id="terms" name="terms" />
+      <input [(ngModel)]="preUser.termsAccepted" type="checkbox" id="terms" name="terms" />
       <label for="terms" >
         {{langService.getTranslation("register", "before-terms")}}
         <a routerLink="/{{this.langService.getLang()}}/terms">
@@ -37,9 +38,9 @@
       </label>
     </div>
 
-    <a class="login-btn" href="">
+    <button  class="login-btn" (click)="requestVerifyCode()">
       {{langService.getTranslation("register", "register")}}
-    </a>
+    </button>
 
     <div class="pages">
       <a routerLink="/{{this.langService.getLang()}}/auth/login" class="login">{{langService.getTranslation("register", "login-btn")}}</a>

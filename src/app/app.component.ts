@@ -19,13 +19,17 @@ export class AppComponent implements OnInit {
 
   disabledHeader = [
     "register",
+    "error",
     "login",
+    "auth/code",
     "dashboard",
   ];
 
   disabledFooter = [
     "register",
+    "error",
     "login",
+    "auth/code",
     "dashboard"
   ];
 
@@ -36,10 +40,14 @@ export class AppComponent implements OnInit {
   }
   ngOnInit(): void {
     this.route.events.subscribe(() => {
-      console.log("Current URL:", this.route.url);
 
       if (this.userService.user === null) {
         this.userService.loadUser();
+        return;
+      }
+
+      if (this.route.url.includes("auth")) {
+        this.route.navigate(['/']);
       }
     });
   }

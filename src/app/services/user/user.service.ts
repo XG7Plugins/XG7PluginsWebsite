@@ -60,7 +60,6 @@ export class UserService {
         } as User;
       },
       error: (error) => {
-        console.log("User not authenticated:", error);
         this.user = null;
       }
 
@@ -94,10 +93,15 @@ export class UserService {
   }
 
   logout() {
-    this.http.post("http://localhost:8080/auth/logout", { withCredentials: true }).subscribe({
+    this.http.post("http://localhost:8080/auth/logout", {}, { withCredentials: true }).subscribe({
       next: () => {
-        this.user = null;
-        this.router.navigate(['/']);
+
+        setTimeout(() => {
+            this.user = null;
+            this.router.navigate(['/']);
+        }, 100);
+
+
       },
       error: (error) => {
         console.error("Logout failed:", error);

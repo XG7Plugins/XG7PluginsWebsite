@@ -1,7 +1,7 @@
 <app-plugin-modal #pluginModal></app-plugin-modal>
 
 <main class="container">
-  <app-img class="not-sm:w-[83%] w-[65%] m-[35px] anm banner_title" alt="title" src="images/banner_title.png" width="60vw"/>
+  <app-img class="m-[35px] anm banner_title" alt="title" src="images/banner_title.png" width="50vw"/>
   <div class="banner">
     <app-img class="banner_img anm" alt="banner" src="images/banner_boy.png" width="230px"/>
     <div class="banner_text">
@@ -10,7 +10,7 @@
         <strong>Seu servidor merece mais!</strong>
         Use nossos plugins para ter mais <strong>desempenho</strong> e <strong>recursos de ótima qualidade</strong>.
       </div>
-      <div class="flex">
+      <div class="flex flex-wrap not-sm:flex-col items-center">
         <button class="btn w-60 h-13 m-5 font-light text-center" (click)="scrollToPlugins($event)">
           {{langService.getTranslation('landingpage', 'see_plugins')}}
         </button>
