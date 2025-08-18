@@ -6,8 +6,7 @@ import {ImgComponent} from '../../../utils/img/img.component';
 @Component({
   selector: 'app-profile',
   imports: [
-    DashboardFooterComponent,
-    ImgComponent
+    DashboardFooterComponent
   ],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'

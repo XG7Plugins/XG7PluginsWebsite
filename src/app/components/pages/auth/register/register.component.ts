@@ -49,6 +49,7 @@ export class RegisterComponent implements OnInit {
 
   }
 
+
   validate() {
 
     if (!this.preUser.termsAccepted) {
@@ -58,6 +59,13 @@ export class RegisterComponent implements OnInit {
 
     if (this.preUser.email === "" || this.preUser.username === "" || this.preUser.password === "") {
       this.notificationService.show('All fields are required.', "ERROR");
+      return false;
+    }
+
+    const regex = /^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+
+    if (!regex.test(this.preUser.email)) {
+      this.notificationService.show('Invalid email format.', "ERROR");
       return false;
     }
 
@@ -96,18 +104,22 @@ export class RegisterComponent implements OnInit {
     if (!this.validate()) return;
 
     console.log("Sending registration request...");
-    this.httpClient.post<{ token: string }>("http://localhost:8080/auth/register", this.preUser, { withCredentials: true }).subscribe({
+    this.httpClient.post("http://localhost:8080/auth/register", this.preUser, { withCredentials: true }).subscribe({
 
       next: (response) => {
         console.log("Request sent successful:", response);
 
-        this.codeService.setToken(response.token, "EMAIL");
+        this.notificationService.show('Registration successful! Redirecting to dashboard...', "SUCCESS");
 
-        this.router.navigate([`/${this.langService.getLang()}/auth/code`]);
+        setTimeout(() => {
+          this.router.navigate([`/${this.langService.getLang()}/dashboard`]);
+        }, 2000);
       },
       error: (error) => {
-        console.error("Registration failed:", error);
-        this.router.navigate([`/${this.langService.getLang()}/error`]);
+
+        console.log(error);
+
+        this.notificationService.show(error.error.message, "ERROR");
 
       }
 

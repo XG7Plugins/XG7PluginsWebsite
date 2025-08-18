@@ -27,7 +27,7 @@ export class CartService {
 
     if (userService.user !== null && hasRole(userService.user, Role.FRIEND)) {
       this.coupon = {
-        code: userService.user.name,
+        code: userService.user.username,
         discount: 10,
         user: userService.user,
         sells: 10

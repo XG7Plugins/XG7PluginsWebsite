@@ -10,22 +10,22 @@
       <label for="email">
         Email:
       </label>
-      <input type="email" id="email" name="email" placeholder='{{langService.getTranslation("login", "email-placeholder")}}' />
+      <input [(ngModel)]="loginUser.email" type="email" id="email" name="email" placeholder='{{langService.getTranslation("login", "email-placeholder")}}' />
 
     </div>
     <div class="input">
       <label for="senha">
         {{langService.getTranslation("login", "password")}}
       </label>
-      <input type="password" id="senha" name="senha" placeholder='{{langService.getTranslation("login", "password-placeholder")}}' />
+      <input [(ngModel)]="loginUser.password" type="password" id="senha" name="senha" placeholder='{{langService.getTranslation("login", "password-placeholder")}}' />
       <small class="password">
         Esqueceu a senha? Clique <a href="">aqui</a> para recuperar
       </small>
     </div>
 
-    <a class="login-btn" href="">
+    <button  class="login-btn" (click)="login()">
       {{langService.getTranslation("login", "login")}}
-    </a>
+    </button>
     <a class="login-btn" style="background: #5865F2;" href="https://discord.com/oauth2/authorize?client_id=1167899920334868540&redirect_uri=http://localhost:8080/auth/discord/login&response_type=code&scope=identify%20email">
       <svg class="m-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px" height="32px" viewBox="0 -28.5 256 256" version="1.1" preserveAspectRatio="xMidYMid">
         <g>

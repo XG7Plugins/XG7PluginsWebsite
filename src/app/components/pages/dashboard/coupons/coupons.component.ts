@@ -8,7 +8,6 @@ import { NgForOf } from '@angular/common';
   selector: 'app-coupons',
   imports: [
     FormsModule,
-    NgForOf
   ],
   templateUrl: './coupons.component.html',
   styleUrl: './coupons.component.css'

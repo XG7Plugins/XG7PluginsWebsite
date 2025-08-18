@@ -13,7 +13,6 @@ import {SellsComponent} from './components/pages/dashboard/sells/sells.component
 import {PluginsComponent} from './components/pages/dashboard/plugins/plugins.component';
 import {CouponsComponent} from './components/pages/dashboard/coupons/coupons.component';
 import {ProfileComponent} from './components/pages/dashboard/profile/profile.component';
-import {CodeComponent} from './components/pages/auth/code/code.component';
 import {ErrorComponent} from './components/error/error.component';
 
 
@@ -43,8 +42,7 @@ export const routes: Routes = [
         path: 'auth',
         children: [
           { path: "login", component: LoginComponent },
-          { path: "register", component: RegisterComponent },
-          { path: "code", component: CodeComponent }
+          { path: "register", component: RegisterComponent }
         ]
       },
       { path: '**', redirectTo: 'error', data: { code: 404, message: 'Página não encontrada!' } }
