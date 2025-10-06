@@ -1,62 +1,20 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {Router, RouterOutlet} from '@angular/router';
 import {HeaderComponent} from './components/header/header.component';
 import {FooterComponent} from './components/footer/footer.component';
 import {NgIf} from '@angular/common';
 import {NotificationComponent} from './components/utils/notification/notification.component';
-import { UserService } from './services/user/user.service';
-
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent, FooterComponent, NgIf, NotificationComponent],
+  imports: [RouterOutlet, HeaderComponent, FooterComponent, NotificationComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'XG7Plugins';
-
-  disabledHeader = [
-    "register",
-    "error",
-    "login",
-    "auth/code",
-    "dashboard",
-  ];
-
-  disabledFooter = [
-    "register",
-    "error",
-    "login",
-    "auth/code",
-    "dashboard"
-  ];
-
-  constructor(
-    private route: Router,
-    private userService: UserService
-  ) {
-  }
-  ngOnInit(): void {
-    this.route.events.subscribe(() => {
-
-      if (this.userService.user === null) {
-        this.userService.loadUser();
-        return;
-      }
-
-      if (this.route.url.includes("auth")) {
-        this.route.navigate(['/']);
-      }
-    });
+  constructor(private route: Router) {
   }
 
-  isDisabledHeader() {
-    return this.disabledHeader.some((page) => this.route.url.includes(page));
-  }
-
-  isDisabledFooter() {
-    return this.disabledFooter.some((page) => this.route.url.includes(page));
-  }
 }

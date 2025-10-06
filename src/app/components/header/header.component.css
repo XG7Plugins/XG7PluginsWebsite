@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 header {
-  @apply grid grid-cols-8 gap-6 not-md:grid-cols-4;
+  @apply grid grid-cols-10 gap-6 not-md:grid-cols-6;
 
   padding: 0 10px 0 10px;
   align-items: center;
   height: 80px;
   border-radius: 0 0 9px 9px;
   border-top: none;
-  width: 75vw;
+  width: 60vw;
 
 }
 

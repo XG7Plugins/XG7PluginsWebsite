@@ -85,11 +85,11 @@ main {
 
 @media screen and (max-width: 60rem) {
   main {
-    width: 95vw;
+    width: 80vw;
   }
   .banner {
     flex-direction: column;
-    
+
     justify-content: space-around;
     width: 100%;
   }

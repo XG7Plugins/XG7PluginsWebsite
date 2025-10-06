@@ -52,18 +52,14 @@
     <div class="plugins-container" [ngClass]="{ 'no-plugins': loadedPlugins.length === 0 }">
 
       <div *ngFor="let plugin of getPlugins()" class="card">
-        <img src="{{ plugin.iconUrl }}" alt="foto"  height="1">
+        <img src="{{ plugin.icon64 }}" alt="foto"  height="1">
         <span class="flex gap-2 items-center">
             <span class="text-2xl font-bold">{{ plugin.name }}</span>
             <span class="opacity-50">v{{ plugin.version }}</span>
           </span>
         <p class="text-xl">{{ plugin.slogan }}</p>
-        <p class="font-normal">{{ plugin.price == 0 ? "Grátis" : "R$" + (plugin.price / 100) }}</p>
         <div class="flex w-full justify-center items-center">
-          <button class="btn h-10 w-1/2 m-2 flex justify-center items-center" *ngIf="!this.userService.containsPlugin(plugin.id) && plugin.price != 0" (click)="cartService.addToCart({id: plugin.id,price: plugin.price,name: plugin.name,imageUrl: plugin.iconUrl,quantity: 0})" >
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M440-600v-120H320v-80h120v-120h80v120h120v80H520v120h-80ZM280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM40-800v-80h131l170 360h280l156-280h91L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68.5-39t-1.5-79l54-98-144-304H40Z"/></svg>
-          </button>
-          <a href="{{plugin.downloadLink}}" target="_blank" class="btn w-32 h-10 m-2 flex items-center justify-center" *ngIf="this.userService.containsPlugin(plugin.id) || plugin.price == 0" >{{ langService.getTranslation("plugins", "download") }}</a>
+          <a href="http://localhost:8080/api/plugins/download/{{plugin.id}}" target="_blank" class="btn w-32 h-10 m-2 flex items-center justify-center" >{{ langService.getTranslation("plugins", "download") }}</a>
           <button (click)="pluginModal.openModal(plugin.id)" class="btn w-32 h-10 m-2" >{{ langService.getTranslation("plugins", "see_more") }}</button>
         </div>
 

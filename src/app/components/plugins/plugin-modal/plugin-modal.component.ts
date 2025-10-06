@@ -1,12 +1,10 @@
 import {Component, HostListener, OnInit} from '@angular/core';
 import {ModalComponent} from '../../utils/modal/modal.component';
-import {NgClass, NgForOf, NgIf} from '@angular/common';
+import {DatePipe, NgClass, NgForOf, NgIf} from '@angular/common';
 import {LangService} from '../../../services/lang/lang.service';
-import {UserService} from '../../../services/user/user.service';
 import {PluginService} from '../../../services/plugin/plugin.service';
-import {Plugin} from '../../../../assets/types/plugin';
+import {formatCategories, LoadedPlugin} from '../../../../assets/types/loadedPlugin';
 import {MarkdownComponent} from '../../utils/markdown/markdown.component';
-import {CartService} from '../../../services/cart/cart.service';
 
 @Component({
   selector: 'app-plugin-modal',
@@ -15,7 +13,8 @@ import {CartService} from '../../../services/cart/cart.service';
     NgIf,
     NgClass,
     MarkdownComponent,
-    NgForOf
+    NgForOf,
+    DatePipe
   ],
   templateUrl: './plugin-modal.component.html',
   styleUrl: './plugin-modal.component.css'
@@ -23,15 +22,13 @@ import {CartService} from '../../../services/cart/cart.service';
 export class PluginModalComponent implements OnInit {
 
   isModalOpen = false;
-  plugin: Plugin | null = null;
+  plugin: LoadedPlugin | null = null;
 
   page: number = 0;
 
   constructor(
     protected langService: LangService,
-    protected userService: UserService,
     private pluginService: PluginService,
-    protected cartService: CartService,
   ) {}
 
   ngOnInit(): void {
@@ -65,4 +62,5 @@ export class PluginModalComponent implements OnInit {
   }
 
 
+  protected readonly formatCategories = formatCategories;
 }

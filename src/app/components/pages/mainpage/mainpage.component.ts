@@ -1,13 +1,11 @@
 import {AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
-import {NgClass, NgForOf, NgIf, NgOptimizedImage} from '@angular/common';
+import {NgClass, NgForOf, NgIf} from '@angular/common';
 import {LangService} from '../../../services/lang/lang.service';
-import {ActivatedRoute, RouterLink} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import {ImgComponent} from '../../utils/img/img.component';
 import {PluginService} from '../../../services/plugin/plugin.service';
-import {Category, PrePlugin} from '../../../../assets/types/plugin';
-import {UserService} from '../../../services/user/user.service';
+import {Category, LoadedPlugin} from '../../../../assets/types/loadedPlugin';
 import {PluginModalComponent} from '../../plugins/plugin-modal/plugin-modal.component';
-import {CartService} from '../../../services/cart/cart.service';
 import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
 
 @Component({
@@ -26,7 +24,7 @@ export class MainpageComponent implements OnInit, AfterViewInit {
 
   @ViewChild('observedElement') observedElement!: ElementRef;
 
-  loadedPlugins: PrePlugin[] = [];
+  loadedPlugins: LoadedPlugin[] = [];
 
   loadingPlugins = true
 
@@ -48,8 +46,6 @@ export class MainpageComponent implements OnInit, AfterViewInit {
     protected langService: LangService,
     private route: ActivatedRoute,
     private pluginsService: PluginService,
-    protected userService: UserService,
-    protected cartService: CartService,
     private sanitizer: DomSanitizer
   ) {}
 
@@ -65,10 +61,10 @@ export class MainpageComponent implements OnInit, AfterViewInit {
       this.langService.loadTranslations("landingpage", lang)
     });
 
-    this.pluginsService.getSomePrePlugins(0,5).subscribe(plugins => {
-      this.loadedPlugins = plugins;
+    this.pluginsService.loadPlugins().then(() => {
       this.loadingPlugins = false;
-    });
+      this.loadedPlugins = this.pluginsService.getPlugins();
+    })
   }
 
   ngAfterViewInit() {
@@ -94,7 +90,7 @@ export class MainpageComponent implements OnInit, AfterViewInit {
     if (page < 1 || page > this.maxPages) return
 
     this.loadingPlugins = true;
-    this.pluginsService.getSomePrePlugins((page - 1) * this.pluginForPage, page * this.pluginForPage).subscribe(plugins => {
+    this.pluginsService.getSomePlugins((page - 1) * this.pluginForPage, page * this.pluginForPage).subscribe(plugins => {
       this.loadedPlugins = plugins;
       this.loadingPlugins = false;
     });
@@ -108,7 +104,7 @@ export class MainpageComponent implements OnInit, AfterViewInit {
     this.setPluginsForPage(window.innerWidth);
     if (pluginsForPageBefore !== this.pluginForPage) {
       this.changePlugins(this.currentPage);
-      this.maxPages = Math.ceil(this.pluginsService.getPrePlugins().length / this.pluginForPage);
+      this.maxPages = Math.ceil(this.pluginsService.getPlugins().length / this.pluginForPage);
 
     }
 
@@ -133,9 +129,7 @@ export class MainpageComponent implements OnInit, AfterViewInit {
 
   getPlugins () {
 
-    let listPlugins = this.categorySelected === 'ALL' ? this.loadedPlugins : this.loadedPlugins.filter(pl =>
-      pl.categories.includes(Category[this.categorySelected as keyof typeof Category])
-    );
+    let listPlugins = this.categorySelected === 'ALL' ? this.loadedPlugins : this.loadedPlugins.filter(pl => pl.categories.includes(this.categorySelected as Category));
 
     switch (this.filter) {
       case 'RECENT':

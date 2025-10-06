@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {marked} from 'marked';
+import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-markdown',
@@ -13,7 +14,11 @@ export class MarkdownComponent {
   @Input() classes: string = '';
   @Input() content!: string | undefined;
 
-  convert() {
-    return marked(this.text);
+  constructor(private sanitizer: DomSanitizer) {}
+
+  convert(): SafeHtml {
+    if (!this.text) return '';
+    const html = marked.parse(this.text); // importante: usar parse()
+    return this.sanitizer.bypassSecurityTrustHtml(<string>html);
   }
 }

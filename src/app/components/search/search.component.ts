@@ -1,9 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ModalComponent} from "../utils/modal/modal.component";
 import {NgForOf, NgIf} from "@angular/common";
-import {PurchasedPlugin} from '../../../assets/types/keys';
 import {LangService} from '../../services/lang/lang.service';
-import {UserService} from '../../services/user/user.service';
 import {PluginService} from '../../services/plugin/plugin.service';
 import {ImgComponent} from '../utils/img/img.component';
 import {FormsModule} from '@angular/forms';
@@ -45,6 +43,6 @@ export class SearchComponent implements OnInit   {
   getPlugins() {
     if (this.pesquisa === "") return [];
 
-    return this.pluginService.getPrePlugins().filter(plugin => plugin.name.toLowerCase().includes(this.pesquisa.toLowerCase()));
+    return this.pluginService.getPlugins().filter(plugin => plugin.name.toLowerCase().includes(this.pesquisa.toLowerCase()));
   }
 }
