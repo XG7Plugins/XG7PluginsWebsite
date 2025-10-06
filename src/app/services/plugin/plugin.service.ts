@@ -19,7 +19,7 @@ export class PluginService {
     if (this.loadedPlugins.length !== 0) return Promise.resolve(this.loadedPlugins);
 
     return new Promise((resolve, reject) => {  // ← Adicione resolve e reject
-      this.http.get<LoadedPlugin[]>('https://xg7pluginsapi.onrender.com/api/plugins').subscribe({
+      this.http.get<LoadedPlugin[]>('https://127.0.0.1:8080/api/plugins').subscribe({
         next: (response) => {
           this.loadedPlugins = response;
           resolve(response);  // ← Resolva a promise aqui

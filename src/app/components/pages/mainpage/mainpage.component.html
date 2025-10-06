@@ -59,7 +59,7 @@
           </span>
         <p class="text-xl">{{ plugin.slogan }}</p>
         <div class="flex w-full justify-center items-center">
-          <a href="https://xg7pluginsapi.onrender.com/api/plugins/download/{{plugin.id}}" target="_blank" class="btn w-32 h-10 m-2 flex items-center justify-center" >{{ langService.getTranslation("plugins", "download") }}</a>
+          <a href="https://127.0.0.1:8080/api/plugins/download/{{plugin.id}}" target="_blank" class="btn w-32 h-10 m-2 flex items-center justify-center" >{{ langService.getTranslation("plugins", "download") }}</a>
           <button (click)="pluginModal.openModal(plugin.id)" class="btn w-32 h-10 m-2" >{{ langService.getTranslation("plugins", "see_more") }}</button>
         </div>
 
