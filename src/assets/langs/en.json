@@ -1,14 +1,47 @@
 {
   "home": "Home",
-  "donate": "Donate",
+  "donate": "Support",
   "terms": "Terms",
-  "all_rights": "All rights reserved",
-  "mojang": "Mojang AB",
+  "all_rights": "XG7Plugins © All rights reserved",
+  "mojang": "This website is not affiliated with Mojang AB",
   "docs": "DOCS",
-  "download_core": "Download core (required)",
+  "download_core": "Download the Core (required)",
   "download": "Download",
   "see_more": "See more",
-  "filter": "Filter",
+  "filter": "Filter by",
+
+  "why_chose": "Why choose <span style='background: linear-gradient(45deg, #0000ff, #00FFFF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: bold;'>XG7Plugins</span>?",
+  "see_plugins": "Check out our plugins",
+
   "most_recent": "Most recent",
-  "most_downloaded": "Most downloaded"
+  "subtitle": "The <strong>best</strong> plugins for your Minecraft server",
+  "slogan": "<strong>Your server deserves more!</strong>\n        Use our plugins to gain <strong>performance</strong> and <strong>high-quality features</strong>.",
+  "most_downloaded": "Most downloaded",
+  "terms_text": "# XG7Plugins Terms of Use and Privacy Policy \n### Last update: 10/03/2025 \n\n---\n\n## 1. Introduction \n\nBy downloading, using, or interacting with the projects distributed by XG7Plugins, the user agrees to these Terms of Use. \nWe recommend carefully reading this document before using any provided plugin. \n\n---\n\n## 2. Free and Non-Commercial Use \n\nAll projects available on this platform are **free to use**. \nIt is **not allowed** to resell or commercially exploit them without the author's express permission. \n\nUsers may use the projects on their own servers, studies, or personal initiatives, respecting the license limits established in each case. \n\n---\n\n## 3. Copyright and Licensing \n\nThe source code, digital assets, and other distributed content remain the property of XG7Plugins, unless otherwise stated. \n\nThe materials provided are under the MIT license, which reinforces all the restrictions mentioned above. The license content is available at: https://github.com/XG7Plugins/XG7Plugins?tab=MIT-1-ov-file#\n\n---\n\n## 4. Community Rules \n\nWhen interacting in forums, Discord servers, or other XG7Plugins community/support spaces, users must: \n\n- Maintain respect in all communication; \n- Not share offensive, illegal, or third-party infringing content; \n- Respect moderation and use the appropriate channels for each topic. \n\nFailure to comply may result in a warning, suspension, or permanent ban. \n\n---\n\n## 5. Changes to the Terms \n\nWe reserve the right to modify these Terms of Use at any time without prior notice. \nWe recommend reviewing this document periodically to stay updated. \n\n---\n\n## 6. Contact \n\nFor questions, suggestions, or requests, please contact us through the official channels on the XG7Plugins Discord server. \n",
+
+  "frequency_updates_title": "Frequent updates",
+  "frequency_updates_text": "XG7Plugins is always looking for performance, security, and feature improvements for your server, bringing new updates quickly. In addition, we pay attention to your feedback, seeking to meet your expectations.",
+
+  "compatibility_title": "Compatibility",
+  "compatibility_text": "Our plugins offer compatibility with multiple Minecraft versions and server software such as BungeeCord, Velocity, Paper, and Spigot. Supported versions start from 1.8 up to the latest. We always strive to keep our products up to date and innovative with the new features of each version.",
+
+  "support_title": "Support",
+  "support_text": "We value every user and prioritize an exceptional experience. That’s why we offer fast, efficient support, always ready to help our customers with whatever they need.",
+
+  "innovation_title": "Innovation",
+  "innovation_text": "We are always ahead, developing unique features that enhance the server experience. One example is our integrated language system, designed to serve diverse audiences with practicality and customization.",
+
+  "join_discord": "Join our community on Discord!",
+  "join_discord_text": "Get updates, announcements, and direct support from the plugin developers!",
+  "join_now": "Join now!",
+
+  "created_at": "Created at:",
+  "update_at": "Updated at:",
+
+  "CATEGORY_ALL": "All",
+  "CATEGORY_ADMIN": "Admin",
+  "CATEGORY_UTILS": "Utilities",
+  "CATEGORY_FUN": "Fun",
+  "CATEGORY_MANAGEMENT": "Management",
+  "CATEGORY_DEPENDENCY": "Dependency"
 }

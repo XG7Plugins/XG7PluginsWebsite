@@ -18,7 +18,7 @@ export class TermsComponent {
 
   ngOnInit(): void {
     this.langService.lang$.subscribe(lang => {
-      this.langService.loadTranslations('terms', lang);
+      this.langService.loadTranslations(lang);
     });
   }
 

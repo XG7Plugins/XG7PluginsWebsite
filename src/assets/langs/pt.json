@@ -1,15 +1,47 @@
 {
   "home": "Início",
-  "donate": "Doar",
+  "donate": "Apoie",
   "terms": "Termos",
-  "all_rights": "Todos os direitos reservados",
-  "mojang": "Mojang AB",
+  "all_rights": "XG7Plugins © Todos os direitos reservados",
+  "mojang": "Esse site não possui nenhuma ligação com MojangAB",
   "docs": "DOCS",
   "download_core": "Baixe o Core (obrigatório)",
   "download": "Baixar",
   "see_more": "Ver mais",
   "filter": "Filtrar por",
+
+  "why_chose": "Por que escolher a <span style='background: linear-gradient(45deg, #0000ff, #00FFFF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: bold;'>XG7Plugins</span>?",  "see_plugins": "Veja nossos plugins",
+
   "most_recent": "Mais recentes",
+  "subtitle": "Os <strong>melhores</strong> plugins para seu servidor de Minecraft",
+  "slogan": "<strong>Seu servidor merece mais!</strong>\n        Use nossos plugins para ter mais <strong>desempenho</strong> e <strong>recursos de ótima qualidade</strong>.",
   "most_downloaded": "Mais baixados",
-  "terms_text": "# Termos de Uso e Privacidade da XG7Plugins \n### Última atualização: 03/10/2025 \n\n---\n\n## 1. Introdução \n\nAo baixar, utilizar ou interagir com os projetos distribuídos pela XG7Plugins, o usuário declara estar de acordo com os presentes Termos de Uso. \nRecomendamos a leitura atenta deste documento antes de fazer uso de qualquer plugin disponibilizado. \n\n---\n\n## 2. Uso Gratuito e Não Comercial \n\nTodos os projetos disponibilizados nesta plataforma são de **uso gratuito**. \nNão é permitida a **revenda** ou qualquer forma de exploração comercial sem autorização expressa do autor. \n\nO usuário pode utilizar os projetos em seus próprios servidores, estudos ou iniciativas pessoais, respeitando os limites de licença estabelecidos em cada caso. \n\n---\n\n## 3. Direitos Autorais e Licenciamento \n\nO código-fonte, artefatos digitais e demais conteúdos distribuídos permanecem sob a titularidade da XG7Plugins, salvo indicação em contrário. \n\nOs materiais disponibilizados possuem uma licença MIT que reforça todas as restrições dos termos acima. O conteúdo da licença está dispoinível neste link: https://github.com/XG7Plugins/XG7Plugins?tab=MIT-1-ov-file#\n\n---\n\n## 4. Regras de Comunidade \n\nAo interagir em fóruns, servidores do Discord ou outros espaços de suporte/comunidade da XG7Plugins, o usuário deve: \n\n- Manter respeito em toda comunicação; \n- Não compartilhar conteúdos ofensivos, ilegais ou que violem direitos de terceiros; \n- Respeitar a moderação e utilizar os canais adequados para cada assunto. \n\nO descumprimento poderá resultar em advertência, suspensão ou banimento permanente. \n\n---\n\n## 5. Alterações nos Termos \n\nReservamo-nos o direito de modificar estes Termos de Uso a qualquer momento, sem aviso prévio. \nRecomendamos revisar este documento periodicamente para se manter atualizado. \n\n---\n\n## 6. Contato \n\nEm caso de dúvidas, sugestões ou solicitações, entre em contato através dos canais oficiais no servidor Discord da XG7Plugins. \n"
+  "terms_text": "# Termos de Uso e Privacidade da XG7Plugins \n### Última atualização: 03/10/2025 \n\n---\n\n## 1. Introdução \n\nAo baixar, utilizar ou interagir com os projetos distribuídos pela XG7Plugins, o usuário declara estar de acordo com os presentes Termos de Uso. \nRecomendamos a leitura atenta deste documento antes de fazer uso de qualquer plugin disponibilizado. \n\n---\n\n## 2. Uso Gratuito e Não Comercial \n\nTodos os projetos disponibilizados nesta plataforma são de **uso gratuito**. \nNão é permitida a **revenda** ou qualquer forma de exploração comercial sem autorização expressa do autor. \n\nO usuário pode utilizar os projetos em seus próprios servidores, estudos ou iniciativas pessoais, respeitando os limites de licença estabelecidos em cada caso. \n\n---\n\n## 3. Direitos Autorais e Licenciamento \n\nO código-fonte, artefatos digitais e demais conteúdos distribuídos permanecem sob a titularidade da XG7Plugins, salvo indicação em contrário. \n\nOs materiais disponibilizados possuem uma licença MIT que reforça todas as restrições dos termos acima. O conteúdo da licença está dispoinível neste link: https://github.com/XG7Plugins/XG7Plugins?tab=MIT-1-ov-file#\n\n---\n\n## 4. Regras de Comunidade \n\nAo interagir em fóruns, servidores do Discord ou outros espaços de suporte/comunidade da XG7Plugins, o usuário deve: \n\n- Manter respeito em toda comunicação; \n- Não compartilhar conteúdos ofensivos, ilegais ou que violem direitos de terceiros; \n- Respeitar a moderação e utilizar os canais adequados para cada assunto. \n\nO descumprimento poderá resultar em advertência, suspensão ou banimento permanente. \n\n---\n\n## 5. Alterações nos Termos \n\nReservamo-nos o direito de modificar estes Termos de Uso a qualquer momento, sem aviso prévio. \nRecomendamos revisar este documento periodicamente para se manter atualizado. \n\n---\n\n## 6. Contato \n\nEm caso de dúvidas, sugestões ou solicitações, entre em contato através dos canais oficiais no servidor Discord da XG7Plugins. \n",
+
+  "frequency_updates_title": "Atualizações frequentes",
+  "frequency_updates_text": "A XG7Plugins sempre está a procura de melhorias de desempenho, segurança e adição de novos recursos para seu servidor, trazendo atualizações novas rapidamente. Além disso, nós observamos seus feedbacks, em busca de atender suas expectativas.",
+
+  "compatibility_title": "Compatibilidade",
+  "compatibility_text": "Nossos plugins oferecem compatibilidade para múltiplas versões do Minecraft e com softwares de servidor, como o BungeeCord, Velocity, Paper e Spigot. As versões compatíveis começam da versão 1.8 até a mais recente. Procuramos sempre manter nossos produtos atualizados e inovando com os recursos novos de cada versão.",
+
+  "support_title": "Atendimento",
+  "support_text": "Valorizamos cada usuário e priorizamos uma experiência excepcional. Por isso, oferecemos um suporte rápido, eficiente e sempre pronto para ajudar os clientes no que for preciso.",
+
+  "innovation_title": "Inovação",
+  "innovation_text": "Estamos sempre à frente, desenvolvendo recursos inéditos que elevam a experiência dos servidores. Um exemplo disso é o nosso sistema de linguagem integrado, pensado para atender públicos diversos com praticidade e personalização.",
+
+  "join_discord": "Junte-se à nossa comunidade no Discord!",
+  "join_discord_text": "Receba atualizações, anúncios e suporte direto dos desenvolvedores dos plugins!",
+  "join_now": "Entre agora!",
+
+  "created_at": "Criado em:",
+  "update_at": "Atualizado em:",
+
+  "CATEGORY_ALL": "Todos",
+  "CATEGORY_ADMIN": "Administração",
+  "CATEGORY_UTILS": "Utilidades",
+  "CATEGORY_FUN": "Diversão",
+  "CATEGORY_MANAGEMENT": "Gestão",
+  "CATEGORY_DEPENDENCY": "Dependência"
+
 }

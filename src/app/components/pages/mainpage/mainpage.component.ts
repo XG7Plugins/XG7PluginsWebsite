@@ -4,7 +4,7 @@ import {LangService} from '../../../services/lang/lang.service';
 import {ActivatedRoute} from '@angular/router';
 import {ImgComponent} from '../../utils/img/img.component';
 import {PluginService} from '../../../services/plugin/plugin.service';
-import {Category, LoadedPlugin} from '../../../../assets/types/loadedPlugin';
+import {Category, formatCategories, LoadedPlugin} from '../../../../assets/types/loadedPlugin';
 import {PluginModalComponent} from '../../plugins/plugin-modal/plugin-modal.component';
 import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
 
@@ -153,4 +153,5 @@ export class MainpageComponent implements OnInit, AfterViewInit {
     return this.sanitizer.bypassSecurityTrustHtml(html);
   }
 
+  protected readonly formatCategories = formatCategories;
 }

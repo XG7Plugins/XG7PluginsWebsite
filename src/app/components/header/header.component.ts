@@ -29,7 +29,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.langService.lang$.subscribe(lang => {
-      this.langService.loadTranslations('header', lang);
+      this.langService.loadTranslations(lang);
     });
   }
 

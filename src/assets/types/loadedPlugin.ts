@@ -1,15 +1,39 @@
+import {LangService} from '../../app/services/lang/lang.service';
+
 export enum Category {
-  ALL = "Todos",
-  ADMIN = "Administração",
-  UTILS = "Utilidades",
-  FUN = "Diversão",
-  MANAGEMENT = "Gestão",
-  DEPENDENCY = "Dependencia"
+  ALL = "CATEGORY_ALL",
+  ADMIN = "CATEGORY_ADMIN",
+  UTILS = "CATEGORY_UTILS",
+  FUN = "CATEGORY_FUN",
+  MANAGEMENT = "CATEGORY_MANAGEMENT",
+  DEPENDENCY = "CATEGORY_DEPENDENCY"
 }
 
-export function formatCategories(categories: Category[]): string {
-  // @ts-ignore
-  return categories.map(cat => Category[cat]).join(', ');
+export function formatCategories(categories: Category[], langService: LangService): string {
+
+  console.log(categories)
+
+  let sb = ""
+
+  let needSlice = false
+
+  categories.forEach(cat => {
+
+    let cate = cat.toString();
+
+    if (!cate.startsWith("CATEGORY_")) {
+      needSlice = true;
+      cate = "CATEGORY_" + cate;
+    }
+
+    sb += langService.getTranslation(cate)
+
+    if (needSlice) sb += ", "
+  })
+
+  if (needSlice) sb = sb.slice(0, -2)
+
+  return sb;
 }
 
 export type LoadedPlugin = {

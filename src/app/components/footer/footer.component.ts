@@ -19,7 +19,7 @@ export class FooterComponent implements OnInit {
 
   ngOnInit(): void {
     this.langService.lang$.subscribe(lang => {
-      this.langService.loadTranslations('footer', lang);
+      this.langService.loadTranslations(lang);
     });
   }
 

@@ -32,7 +32,7 @@ export class SearchComponent implements OnInit   {
 
   ngOnInit(): void {
     this.langService.lang$.subscribe(lang => {
-      this.langService.loadTranslations('plugins', lang);
+      this.langService.loadTranslations(lang);
     });
   }
 
