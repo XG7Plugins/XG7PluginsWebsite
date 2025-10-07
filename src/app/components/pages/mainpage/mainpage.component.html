@@ -5,14 +5,14 @@
   <div class="banner">
     <app-img class="banner_img anm" alt="banner" src="images/banner_boy.png" width="230px"/>
     <div class="banner_text">
-      <h2 class=" text-2xl font-extralight" [innerHTML]="langService.getTranslation('landingpage', 'subtitle')"></h2>
+      <h2 class=" text-2xl font-extralight" [innerHTML]="langService.getTranslation('subtitle')"></h2>
       <div>
         <strong>Seu servidor merece mais!</strong>
         Use nossos plugins para ter mais <strong>desempenho</strong> e <strong>recursos de ótima qualidade</strong>.
       </div>
       <div class="flex flex-wrap not-sm:flex-col items-center">
         <button class="btn w-60 h-13 m-5 font-light text-center" (click)="scrollToPlugins($event)">
-          {{langService.getTranslation('landingpage', 'see_plugins')}}
+          {{langService.getTranslation('see_plugins')}}
         </button>
         <button class="btn w-40 h-13 m-5 font-light text-center" (click)="scrollToPlugins($event)">
           Baixe o core (XG7Plugins.jar)
@@ -41,9 +41,9 @@
         <div class="flex not-sm:items-center not-sm:justify-center">
           <select class="btn text-center w-60 h-15 not-sm:w-full">
 
-            <option (click)="this.filter = 'NOTHING'">{{ langService.getTranslation("plugins", "filter") }}</option>
-            <option (click)="this.filter = 'RECENT'" >{{ langService.getTranslation("plugins", "most_recent") }}</option>
-            <option (click)="this.filter = 'DOWNLOADED'" >{{ langService.getTranslation("plugins", "most_downloaded") }}</option>
+            <option (click)="this.filter = 'NOTHING'">{{ langService.getTranslation("filter") }}</option>
+            <option (click)="this.filter = 'RECENT'" >{{ langService.getTranslation("most_recent") }}</option>
+            <option (click)="this.filter = 'DOWNLOADED'" >{{ langService.getTranslation("most_downloaded") }}</option>
 
           </select>
         </div>
@@ -59,8 +59,8 @@
           </span>
         <p class="text-xl">{{ plugin.slogan }}</p>
         <div class="flex w-full justify-center items-center">
-          <a href="https://api.xg7plugins.com/plugins/download/{{plugin.id}}" target="_blank" class="btn w-32 h-10 m-2 flex items-center justify-center" >{{ langService.getTranslation("plugins", "download") }}</a>
-          <button (click)="pluginModal.openModal(plugin.id)" class="btn w-32 h-10 m-2" >{{ langService.getTranslation("plugins", "see_more") }}</button>
+          <a href="https://api.xg7plugins.com/plugins/download/{{plugin.id}}" target="_blank" class="btn w-32 h-10 m-2 flex items-center justify-center" >{{ langService.getTranslation("download") }}</a>
+          <button (click)="pluginModal.openModal(plugin.id)" class="btn w-32 h-10 m-2" >{{ langService.getTranslation("see_more") }}</button>
         </div>
 
       </div>

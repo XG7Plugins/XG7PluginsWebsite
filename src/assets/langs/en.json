@@ -1,4 +1,10 @@
 {
+  "home": "Home",
+  "donate": "Donate",
+  "terms": "Terms",
+  "all_rights": "All rights reserved",
+  "mojang": "Mojang AB",
+  "docs": "DOCS",
   "download_core": "Download core (required)",
   "download": "Download",
   "see_more": "See more",

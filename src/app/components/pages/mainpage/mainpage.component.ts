@@ -58,7 +58,7 @@ export class MainpageComponent implements OnInit, AfterViewInit {
     this.route.params.subscribe(params => {
       const lang = params['lang'];
       this.langService.setLang(lang);
-      this.langService.loadTranslations("landingpage", lang)
+      this.langService.loadTranslations(lang)
     });
 
     this.pluginsService.loadPlugins().then(() => {
@@ -149,7 +149,7 @@ export class MainpageComponent implements OnInit, AfterViewInit {
   }
 
   getSafeHtml(key: string): SafeHtml {
-    const html = this.langService.getTranslation('landingpage', key);
+    const html = this.langService.getTranslation(key);
     return this.sanitizer.bypassSecurityTrustHtml(html);
   }
 
