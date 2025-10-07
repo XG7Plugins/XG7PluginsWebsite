@@ -11,8 +11,6 @@ export enum Category {
 
 export function formatCategories(categories: Category[], langService: LangService): string {
 
-  console.log(categories)
-
   let sb = ""
 
   let needSlice = false
