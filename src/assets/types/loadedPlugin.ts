@@ -42,7 +42,7 @@ export type LoadedPlugin = {
   version: string;
   slogan: string;
   description: string;
-  icon64: string;
+  iconURL: string;
 
   docLink: string;
   githubLink: string;

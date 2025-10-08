@@ -50,7 +50,7 @@
     <div class="plugins-container" [ngClass]="{ 'no-plugins': loadedPlugins.length === 0 }">
 
       <div *ngFor="let plugin of getPlugins()" class="card">
-        <img src="{{ plugin.icon64 }}" alt="foto"  height="1">
+        <img src="{{ plugin.iconURL }}" alt="foto"  height="1">
         <span class="flex gap-2 items-center">
             <span class="text-2xl font-bold">{{ plugin.name }}</span>
             <span class="opacity-50">v{{ plugin.version }}</span>
