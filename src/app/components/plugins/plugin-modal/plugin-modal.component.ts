@@ -45,6 +45,7 @@ export class PluginModalComponent implements OnInit {
   }
 
   setPage(number = 0) {
+    if (number < 0 || number > 4) return;
     this.page = number;
   }
 

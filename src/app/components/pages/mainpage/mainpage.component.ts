@@ -47,7 +47,9 @@ export class MainpageComponent implements OnInit, AfterViewInit {
     private route: ActivatedRoute,
     private pluginsService: PluginService,
     private sanitizer: DomSanitizer
-  ) {}
+  ) {
+
+  }
 
   scrollToPlugins(event: MouseEvent) {
     event.preventDefault()
@@ -60,11 +62,6 @@ export class MainpageComponent implements OnInit, AfterViewInit {
       this.langService.setLang(lang);
       this.langService.loadTranslations(lang)
     });
-
-    this.pluginsService.loadPlugins().then(() => {
-      this.loadingPlugins = false;
-      this.loadedPlugins = this.pluginsService.getPlugins();
-    })
   }
 
   ngAfterViewInit() {
@@ -82,6 +79,22 @@ export class MainpageComponent implements OnInit, AfterViewInit {
     );
 
     observer.observe(this.observedElement.nativeElement);
+
+    this.pluginsService.loadPlugins().then(() => {
+      this.loadingPlugins = false;
+      this.loadedPlugins = this.pluginsService.getPlugins();
+
+      this.route.queryParams.subscribe(params => {
+        const id = params['plugin'];
+        const tab = params['tab'] ?? "0";
+
+        console.log(id, tab);
+        if (id) {
+          this.pluginModal.openModal(parseInt(id));
+          this.pluginModal.setPage(parseInt(tab));
+        }
+      });
+    })
   }
 
   changePlugins(page: number) {
