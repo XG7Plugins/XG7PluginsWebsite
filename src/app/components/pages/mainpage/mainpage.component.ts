@@ -26,6 +26,8 @@ export class MainpageComponent implements OnInit, AfterViewInit {
 
   loadedPlugins: LoadedPlugin[] = [];
 
+  showablePlugins: LoadedPlugin[] = [];
+
   loadingPlugins = true
 
   currentPage = 1;
@@ -83,12 +85,16 @@ export class MainpageComponent implements OnInit, AfterViewInit {
     this.pluginsService.loadPlugins().then(() => {
       this.loadingPlugins = false;
       this.loadedPlugins = this.pluginsService.getPlugins();
+      this.setPluginsForPage(window.innerWidth)
+      this.maxPages = Math.ceil(this.loadedPlugins.length / this.pluginForPage);
+      this.changePlugins(1)
+
 
       this.route.queryParams.subscribe(params => {
         const id = params['plugin'];
         const tab = params['tab'] ?? "0";
 
-        console.log(id, tab);
+
         if (id) {
           this.pluginModal.openModal(parseInt(id));
           this.pluginModal.setPage(parseInt(tab));
@@ -102,13 +108,13 @@ export class MainpageComponent implements OnInit, AfterViewInit {
 
     if (page < 1 || page > this.maxPages) return
 
-    this.loadingPlugins = true;
-    this.pluginsService.getSomePlugins((page - 1) * this.pluginForPage, page * this.pluginForPage).subscribe(plugins => {
-      this.loadedPlugins = plugins;
-      this.loadingPlugins = false;
-    });
+    let listPlugins = this.sort(this.loadedPlugins);
+
+    this.showablePlugins = listPlugins.slice((page - 1) * this.pluginForPage, page * this.pluginForPage)
 
     this.currentPage = page;
+
+
   }
 
   @HostListener('window:resize', ['$event.target.innerWidth'])
@@ -140,9 +146,11 @@ export class MainpageComponent implements OnInit, AfterViewInit {
     }
   }
 
-  getPlugins () {
+  private sort(list: LoadedPlugin[]) {
 
-    let listPlugins = this.categorySelected === 'ALL' ? this.loadedPlugins : this.loadedPlugins.filter(pl => pl.categories.includes(this.categorySelected as Category));
+    let listPlugins = this.categorySelected === 'ALL'
+      ? [...list]
+      : list.filter(pl => pl.categories.includes(this.categorySelected as Category));
 
     switch (this.filter) {
       case 'RECENT':
@@ -153,7 +161,6 @@ export class MainpageComponent implements OnInit, AfterViewInit {
         listPlugins = listPlugins.sort((a, b) => b.downloads - a.downloads);
         break;
 
-      case 'NOTHING':
       default:
         break;
     }
@@ -161,6 +168,21 @@ export class MainpageComponent implements OnInit, AfterViewInit {
     return listPlugins;
   }
 
+  changeFilter(filter: "RECENT" | "DOWNLOADED" | "NOTHING") {
+    this.filter = filter;
+    this.updatePluginsList();
+  }
+
+  updatePluginsList() {
+    const filteredList = this.sort(this.loadedPlugins);
+    this.maxPages = Math.ceil(filteredList.length / this.pluginForPage);
+
+    if (this.currentPage > this.maxPages) {
+      this.currentPage = Math.max(1, this.maxPages);
+    }
+
+    this.changePlugins(this.currentPage);
+  }
   getSafeHtml(key: string): SafeHtml {
     const html = this.langService.getTranslation(key);
     return this.sanitizer.bypassSecurityTrustHtml(html);

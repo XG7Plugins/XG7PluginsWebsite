@@ -39,9 +39,6 @@ export class PluginService {
     return this.loadedPlugins
   }
 
-  getSomePlugins(start: number, end: number): Observable<LoadedPlugin[]> {
-    return of(this.loadedPlugins.slice(start, end));
-  }
 
   getPlugin(id: number) {
     // return this.http.get(`https://api.example.com/plugins/${id}`);
